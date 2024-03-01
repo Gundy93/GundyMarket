@@ -14,8 +14,8 @@ struct ProductDTO: Decodable {
     let thumbnailURL: String
     let currency: Currency
     let price: Int
-    let createdAt: Date
-    let issuedAt: Date
+    let createdAt: String
+    let issuedAt: String
     let images: [ProductImage]?
     let vendor: Vendor?
     

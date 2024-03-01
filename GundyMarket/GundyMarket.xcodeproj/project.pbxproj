@@ -14,6 +14,12 @@
 		BF217FC82B90445900005292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF217FC62B90445900005292 /* LaunchScreen.storyboard */; };
 		BF217FD52B904B2200005292 /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FD42B904B2200005292 /* ProductDTO.swift */; };
 		BF217FD72B90685100005292 /* ProductDTOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FD62B90685100005292 /* ProductDTOList.swift */; };
+		BF217FDA2B924D4200005292 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FD92B924D4200005292 /* NetworkManager.swift */; };
+		BF217FDC2B924D5200005292 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FDB2B924D5200005292 /* NetworkError.swift */; };
+		BF217FE12B924E5300005292 /* NetworkBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE02B924E5300005292 /* NetworkBuilderProtocol.swift */; };
+		BF217FE32B9250B500005292 /* NetworkSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE22B9250B500005292 /* NetworkSerializable.swift */; };
+		BF217FE72B92541E00005292 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */; };
+		BF217FED2B92589E00005292 /* NetworkDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		BF217FC92B90445900005292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF217FD42B904B2200005292 /* ProductDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
 		BF217FD62B90685100005292 /* ProductDTOList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTOList.swift; sourceTree = "<group>"; };
+		BF217FD92B924D4200005292 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BF217FDB2B924D5200005292 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		BF217FE02B924E5300005292 /* NetworkBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBuilderProtocol.swift; sourceTree = "<group>"; };
+		BF217FE22B9250B500005292 /* NetworkSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerializable.swift; sourceTree = "<group>"; };
+		BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProtocol.swift; sourceTree = "<group>"; };
+		BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDeserializable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				BF217FD32B9049D900005292 /* DTO */,
+				BF217FD82B924D0300005292 /* Network */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -108,6 +121,27 @@
 				BF217FD62B90685100005292 /* ProductDTOList.swift */,
 			);
 			name = DTO;
+			sourceTree = "<group>";
+		};
+		BF217FD82B924D0300005292 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BF217FD92B924D4200005292 /* NetworkManager.swift */,
+				BF217FDB2B924D5200005292 /* NetworkError.swift */,
+				BF217FDF2B924E3500005292 /* Interface */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		BF217FDF2B924E3500005292 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				BF217FE22B9250B500005292 /* NetworkSerializable.swift */,
+				BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */,
+				BF217FE02B924E5300005292 /* NetworkBuilderProtocol.swift */,
+				BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,11 +214,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF217FE72B92541E00005292 /* NetworkSessionProtocol.swift in Sources */,
+				BF217FDA2B924D4200005292 /* NetworkManager.swift in Sources */,
+				BF217FDC2B924D5200005292 /* NetworkError.swift in Sources */,
+				BF217FE12B924E5300005292 /* NetworkBuilderProtocol.swift in Sources */,
 				BF217FD72B90685100005292 /* ProductDTOList.swift in Sources */,
 				BF217FC02B90445700005292 /* ViewController.swift in Sources */,
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
 				BF217FBE2B90445700005292 /* SceneDelegate.swift in Sources */,
+				BF217FE32B9250B500005292 /* NetworkSerializable.swift in Sources */,
 				BF217FD52B904B2200005292 /* ProductDTO.swift in Sources */,
+				BF217FED2B92589E00005292 /* NetworkDeserializable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
