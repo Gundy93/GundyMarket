@@ -8,5 +8,4 @@
 enum NetworkError: Error {
     case urlNotFound
     case responseNotFound
-    case imageDecodingFailure
 }

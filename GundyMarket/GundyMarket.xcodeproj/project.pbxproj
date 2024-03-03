@@ -20,7 +20,25 @@
 		BF217FE32B9250B500005292 /* NetworkSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE22B9250B500005292 /* NetworkSerializable.swift */; };
 		BF217FE72B92541E00005292 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */; };
 		BF217FED2B92589E00005292 /* NetworkDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */; };
+		BF21801C2B9303A400005292 /* ProductDTOListDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21801B2B9303A400005292 /* ProductDTOListDecodingTests.swift */; };
+		BF2180242B93041A00005292 /* productList.json in Resources */ = {isa = PBXBuildFile; fileRef = BF2180232B93041A00005292 /* productList.json */; };
+		BF2180262B9305E800005292 /* ProductDTODecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180252B9305E800005292 /* ProductDTODecodingTests.swift */; };
+		BF2180282B93065F00005292 /* product.json in Resources */ = {isa = PBXBuildFile; fileRef = BF2180272B93065F00005292 /* product.json */; };
+		BF21802B2B930A4100005292 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802A2B930A4100005292 /* NetworkManagerTests.swift */; };
+		BF21802D2B930ADF00005292 /* StubNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802C2B930ADF00005292 /* StubNetworkSession.swift */; };
+		BF21802F2B930D9800005292 /* DummyNetworkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802E2B930D9800005292 /* DummyNetworkBuilder.swift */; };
+		BF2180312B93112600005292 /* JSONNetworkDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180302B93112600005292 /* JSONNetworkDeserializer.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF21801D2B9303A400005292 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF217FB02B90445700005292 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF217FB72B90445700005292;
+			remoteInfo = GundyMarket;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BF217FB82B90445700005292 /* GundyMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GundyMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,10 +56,26 @@
 		BF217FE22B9250B500005292 /* NetworkSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerializable.swift; sourceTree = "<group>"; };
 		BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProtocol.swift; sourceTree = "<group>"; };
 		BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDeserializable.swift; sourceTree = "<group>"; };
+		BF2180192B9303A400005292 /* GundyMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GundyMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF21801B2B9303A400005292 /* ProductDTOListDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTOListDecodingTests.swift; sourceTree = "<group>"; };
+		BF2180232B93041A00005292 /* productList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productList.json; sourceTree = "<group>"; };
+		BF2180252B9305E800005292 /* ProductDTODecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTODecodingTests.swift; sourceTree = "<group>"; };
+		BF2180272B93065F00005292 /* product.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = product.json; sourceTree = "<group>"; };
+		BF21802A2B930A4100005292 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		BF21802C2B930ADF00005292 /* StubNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNetworkSession.swift; sourceTree = "<group>"; };
+		BF21802E2B930D9800005292 /* DummyNetworkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyNetworkBuilder.swift; sourceTree = "<group>"; };
+		BF2180302B93112600005292 /* JSONNetworkDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNetworkDeserializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BF217FB52B90445700005292 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2180162B9303A400005292 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				BF217FBA2B90445700005292 /* GundyMarket */,
+				BF21801A2B9303A400005292 /* GundyMarketTests */,
 				BF217FB92B90445700005292 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				BF217FB82B90445700005292 /* GundyMarket.app */,
+				BF2180192B9303A400005292 /* GundyMarketTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +164,7 @@
 			children = (
 				BF217FD92B924D4200005292 /* NetworkManager.swift */,
 				BF217FDB2B924D5200005292 /* NetworkError.swift */,
+				BF2180302B93112600005292 /* JSONNetworkDeserializer.swift */,
 				BF217FDF2B924E3500005292 /* Interface */,
 			);
 			name = Network;
@@ -142,6 +179,36 @@
 				BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */,
 			);
 			name = Interface;
+			sourceTree = "<group>";
+		};
+		BF21801A2B9303A400005292 /* GundyMarketTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF2180222B9303A800005292 /* JSONDecodingTests */,
+				BF2180292B930A2A00005292 /* NetworkManagerTests */,
+			);
+			path = GundyMarketTests;
+			sourceTree = "<group>";
+		};
+		BF2180222B9303A800005292 /* JSONDecodingTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF2180272B93065F00005292 /* product.json */,
+				BF2180252B9305E800005292 /* ProductDTODecodingTests.swift */,
+				BF2180232B93041A00005292 /* productList.json */,
+				BF21801B2B9303A400005292 /* ProductDTOListDecodingTests.swift */,
+			);
+			path = JSONDecodingTests;
+			sourceTree = "<group>";
+		};
+		BF2180292B930A2A00005292 /* NetworkManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF21802C2B930ADF00005292 /* StubNetworkSession.swift */,
+				BF21802E2B930D9800005292 /* DummyNetworkBuilder.swift */,
+				BF21802A2B930A4100005292 /* NetworkManagerTests.swift */,
+			);
+			path = NetworkManagerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +231,24 @@
 			productReference = BF217FB82B90445700005292 /* GundyMarket.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BF2180182B9303A400005292 /* GundyMarketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF2180212B9303A400005292 /* Build configuration list for PBXNativeTarget "GundyMarketTests" */;
+			buildPhases = (
+				BF2180152B9303A400005292 /* Sources */,
+				BF2180162B9303A400005292 /* Frameworks */,
+				BF2180172B9303A400005292 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF21801E2B9303A400005292 /* PBXTargetDependency */,
+			);
+			name = GundyMarketTests;
+			productName = GundyMarketTests;
+			productReference = BF2180192B9303A400005292 /* GundyMarketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -176,6 +261,10 @@
 				TargetAttributes = {
 					BF217FB72B90445700005292 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					BF2180182B9303A400005292 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = BF217FB72B90445700005292;
 					};
 				};
 			};
@@ -193,6 +282,7 @@
 			projectRoot = "";
 			targets = (
 				BF217FB72B90445700005292 /* GundyMarket */,
+				BF2180182B9303A400005292 /* GundyMarketTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +297,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF2180172B9303A400005292 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF2180242B93041A00005292 /* productList.json in Resources */,
+				BF2180282B93065F00005292 /* product.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -218,6 +317,7 @@
 				BF217FDA2B924D4200005292 /* NetworkManager.swift in Sources */,
 				BF217FDC2B924D5200005292 /* NetworkError.swift in Sources */,
 				BF217FE12B924E5300005292 /* NetworkBuilderProtocol.swift in Sources */,
+				BF2180312B93112600005292 /* JSONNetworkDeserializer.swift in Sources */,
 				BF217FD72B90685100005292 /* ProductDTOList.swift in Sources */,
 				BF217FC02B90445700005292 /* ViewController.swift in Sources */,
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
@@ -228,7 +328,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF2180152B9303A400005292 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF21802F2B930D9800005292 /* DummyNetworkBuilder.swift in Sources */,
+				BF21802B2B930A4100005292 /* NetworkManagerTests.swift in Sources */,
+				BF2180262B9305E800005292 /* ProductDTODecodingTests.swift in Sources */,
+				BF21801C2B9303A400005292 /* ProductDTOListDecodingTests.swift in Sources */,
+				BF21802D2B930ADF00005292 /* StubNetworkSession.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF21801E2B9303A400005292 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF217FB72B90445700005292 /* GundyMarket */;
+			targetProxy = BF21801D2B9303A400005292 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BF217FC62B90445900005292 /* LaunchScreen.storyboard */ = {
@@ -423,6 +543,42 @@
 			};
 			name = Release;
 		};
+		BF21801F2B9303A400005292 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RKG4N9K9YM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gundy.GundyMarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GundyMarket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GundyMarket";
+			};
+			name = Debug;
+		};
+		BF2180202B9303A400005292 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RKG4N9K9YM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Gundy.GundyMarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GundyMarket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GundyMarket";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -440,6 +596,15 @@
 			buildConfigurations = (
 				BF217FCD2B90445900005292 /* Debug */,
 				BF217FCE2B90445900005292 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF2180212B9303A400005292 /* Build configuration list for PBXNativeTarget "GundyMarketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF21801F2B9303A400005292 /* Debug */,
+				BF2180202B9303A400005292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
