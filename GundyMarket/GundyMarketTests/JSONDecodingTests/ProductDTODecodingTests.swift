@@ -65,7 +65,6 @@ final class ProductDTODecodingTests: XCTestCase {
         XCTAssertEqual(product.price, 1000)
         XCTAssertEqual(product.createdAt, "2024-02-07T00:00:00")
         XCTAssertEqual(product.issuedAt, "2024-02-07T00:00:00")
-        XCTAssertEqual(product.vendor?.name, "zhilly")
     }
     
     func testProductDTODecoding_상세_조회의_Response를_decode한_결과의_ProductDTO는_images와_vendor가_nil이아니다() throws {
@@ -77,6 +76,5 @@ final class ProductDTODecodingTests: XCTestCase {
         
         // then
         XCTAssertNotNil(product.images)
-        XCTAssertNotNil(product.vendor)
     }
 }

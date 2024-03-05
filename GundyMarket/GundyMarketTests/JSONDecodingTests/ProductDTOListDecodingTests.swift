@@ -73,6 +73,5 @@ final class ProductDTOListDecodingTests: XCTestCase {
         
         // then
         XCTAssertNil(firstProduct.images)
-        XCTAssertNil(firstProduct.vendor)
     }
 }

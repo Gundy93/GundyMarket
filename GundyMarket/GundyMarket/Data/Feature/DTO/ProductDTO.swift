@@ -9,6 +9,7 @@ import Foundation
 
 struct ProductDTO: Decodable {
     let id: Int
+    let vendorName: String?
     let name: String
     let description: String
     let thumbnailURL: String
@@ -20,7 +21,7 @@ struct ProductDTO: Decodable {
     let vendor: Vendor?
     
     enum CodingKeys: String, CodingKey {
-        case id, name, description, currency, images
+        case id, vendorName, name, description, currency, images
         case thumbnailURL = "thumbnail"
         case price = "bargain_price"
         case createdAt = "created_at"
@@ -29,15 +30,18 @@ struct ProductDTO: Decodable {
     }
 }
 
-enum Currency: String, Codable {
-    case krw = "KRW"
-    case usd = "USD"
-}
-
-struct ProductImage: Decodable {
-    let url: String
-}
-
-struct Vendor: Decodable {
-    let name: String
+extension ProductDTO {
+    func toDomain() -> Product {
+        Product(
+            id: id,
+            vendorName: vendorName ?? vendor?.name,
+            name: name,
+            description: description,
+            thumbnailURL: thumbnailURL,
+            currency: currency,
+            price: price,
+            issuedAt: issuedAt,
+            isEdited: createdAt != issuedAt
+        )
+    }
 }

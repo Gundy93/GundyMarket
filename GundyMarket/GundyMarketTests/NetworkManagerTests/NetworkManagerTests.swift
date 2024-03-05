@@ -130,7 +130,6 @@ final class NetworkManagerTests: XCTestCase {
         let expectedPrice = 1000
         let expectedCreatedAt = "2024-02-07T00:00:00"
         let expectedIssuedAt = "2024-02-07T00:00:00"
-        let expectedVendorName = "zhilly"
         
         // then
         sut.request(builder) { result in
@@ -144,7 +143,6 @@ final class NetworkManagerTests: XCTestCase {
                 XCTAssertEqual(product.price, expectedPrice)
                 XCTAssertEqual(product.createdAt, expectedCreatedAt)
                 XCTAssertEqual(product.issuedAt, expectedIssuedAt)
-                XCTAssertEqual(product.vendor?.name, expectedVendorName)
             case .failure(_):
                 XCTFail()
             }

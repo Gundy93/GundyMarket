@@ -12,14 +12,6 @@
 		BF217FC02B90445700005292 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBF2B90445700005292 /* ViewController.swift */; };
 		BF217FC52B90445900005292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF217FC42B90445900005292 /* Assets.xcassets */; };
 		BF217FC82B90445900005292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF217FC62B90445900005292 /* LaunchScreen.storyboard */; };
-		BF217FD52B904B2200005292 /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FD42B904B2200005292 /* ProductDTO.swift */; };
-		BF217FD72B90685100005292 /* ProductDTOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FD62B90685100005292 /* ProductDTOList.swift */; };
-		BF217FDA2B924D4200005292 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FD92B924D4200005292 /* NetworkManager.swift */; };
-		BF217FDC2B924D5200005292 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FDB2B924D5200005292 /* NetworkError.swift */; };
-		BF217FE12B924E5300005292 /* NetworkBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE02B924E5300005292 /* NetworkBuilderProtocol.swift */; };
-		BF217FE32B9250B500005292 /* NetworkSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE22B9250B500005292 /* NetworkSerializable.swift */; };
-		BF217FE72B92541E00005292 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */; };
-		BF217FED2B92589E00005292 /* NetworkDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */; };
 		BF21801C2B9303A400005292 /* ProductDTOListDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21801B2B9303A400005292 /* ProductDTOListDecodingTests.swift */; };
 		BF2180242B93041A00005292 /* productList.json in Resources */ = {isa = PBXBuildFile; fileRef = BF2180232B93041A00005292 /* productList.json */; };
 		BF2180262B9305E800005292 /* ProductDTODecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180252B9305E800005292 /* ProductDTODecodingTests.swift */; };
@@ -27,7 +19,25 @@
 		BF21802B2B930A4100005292 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802A2B930A4100005292 /* NetworkManagerTests.swift */; };
 		BF21802D2B930ADF00005292 /* StubNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802C2B930ADF00005292 /* StubNetworkSession.swift */; };
 		BF21802F2B930D9800005292 /* DummyNetworkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802E2B930D9800005292 /* DummyNetworkBuilder.swift */; };
-		BF2180312B93112600005292 /* JSONNetworkDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180302B93112600005292 /* JSONNetworkDeserializer.swift */; };
+		BF2180432B95DBCC00005292 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180422B95DBCC00005292 /* Product.swift */; };
+		BF21804B2B95E88900005292 /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21804A2B95E88900005292 /* DateCalculator.swift */; };
+		BF21804E2B95EB4800005292 /* DateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21804D2B95EB4800005292 /* DateCalculatorTests.swift */; };
+		BF2180522B97329C00005292 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180512B97329C00005292 /* Currency.swift */; };
+		BF2180572B9732A900005292 /* ProductDTOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180532B9732A900005292 /* ProductDTOList.swift */; };
+		BF2180582B9732A900005292 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180542B9732A900005292 /* Vendor.swift */; };
+		BF2180592B9732A900005292 /* ProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180552B9732A900005292 /* ProductDTO.swift */; };
+		BF21805A2B9732A900005292 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180562B9732A900005292 /* ProductImage.swift */; };
+		BF21805E2B9732C000005292 /* ProductListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21805B2B9732C000005292 /* ProductListBuilder.swift */; };
+		BF21805F2B9732C000005292 /* ProductBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21805C2B9732C000005292 /* ProductBuilder.swift */; };
+		BF2180602B9732C000005292 /* HealthCheckerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21805D2B9732C000005292 /* HealthCheckerBuilder.swift */; };
+		BF2180652B9732DC00005292 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180612B9732DC00005292 /* NetworkManager.swift */; };
+		BF2180662B9732DC00005292 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180622B9732DC00005292 /* NetworkError.swift */; };
+		BF2180672B9732DC00005292 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180632B9732DC00005292 /* NetworkSession.swift */; };
+		BF2180682B9732DC00005292 /* JSONNetworkDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180642B9732DC00005292 /* JSONNetworkDeserializer.swift */; };
+		BF21806D2B97330200005292 /* NetworkSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180692B97330200005292 /* NetworkSerializable.swift */; };
+		BF21806E2B97330200005292 /* NetworkDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806A2B97330200005292 /* NetworkDeserializable.swift */; };
+		BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */; };
+		BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,14 +58,6 @@
 		BF217FC42B90445900005292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF217FC72B90445900005292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF217FC92B90445900005292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF217FD42B904B2200005292 /* ProductDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTO.swift; sourceTree = "<group>"; };
-		BF217FD62B90685100005292 /* ProductDTOList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTOList.swift; sourceTree = "<group>"; };
-		BF217FD92B924D4200005292 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		BF217FDB2B924D5200005292 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		BF217FE02B924E5300005292 /* NetworkBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBuilderProtocol.swift; sourceTree = "<group>"; };
-		BF217FE22B9250B500005292 /* NetworkSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerializable.swift; sourceTree = "<group>"; };
-		BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProtocol.swift; sourceTree = "<group>"; };
-		BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDeserializable.swift; sourceTree = "<group>"; };
 		BF2180192B9303A400005292 /* GundyMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GundyMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF21801B2B9303A400005292 /* ProductDTOListDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTOListDecodingTests.swift; sourceTree = "<group>"; };
 		BF2180232B93041A00005292 /* productList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productList.json; sourceTree = "<group>"; };
@@ -64,7 +66,25 @@
 		BF21802A2B930A4100005292 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		BF21802C2B930ADF00005292 /* StubNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNetworkSession.swift; sourceTree = "<group>"; };
 		BF21802E2B930D9800005292 /* DummyNetworkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyNetworkBuilder.swift; sourceTree = "<group>"; };
-		BF2180302B93112600005292 /* JSONNetworkDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNetworkDeserializer.swift; sourceTree = "<group>"; };
+		BF2180422B95DBCC00005292 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		BF21804A2B95E88900005292 /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
+		BF21804D2B95EB4800005292 /* DateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculatorTests.swift; sourceTree = "<group>"; };
+		BF2180512B97329C00005292 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = Data/Feature/DTO/Currency.swift; sourceTree = "<group>"; };
+		BF2180532B9732A900005292 /* ProductDTOList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductDTOList.swift; path = Data/Feature/DTO/ProductDTOList.swift; sourceTree = "<group>"; };
+		BF2180542B9732A900005292 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendor.swift; path = Data/Feature/DTO/Vendor.swift; sourceTree = "<group>"; };
+		BF2180552B9732A900005292 /* ProductDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductDTO.swift; path = Data/Feature/DTO/ProductDTO.swift; sourceTree = "<group>"; };
+		BF2180562B9732A900005292 /* ProductImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductImage.swift; path = Data/Feature/DTO/ProductImage.swift; sourceTree = "<group>"; };
+		BF21805B2B9732C000005292 /* ProductListBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListBuilder.swift; path = Data/Feature/OpenMarketBuilder/ProductListBuilder.swift; sourceTree = "<group>"; };
+		BF21805C2B9732C000005292 /* ProductBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductBuilder.swift; path = Data/Feature/OpenMarketBuilder/ProductBuilder.swift; sourceTree = "<group>"; };
+		BF21805D2B9732C000005292 /* HealthCheckerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthCheckerBuilder.swift; path = Data/Feature/OpenMarketBuilder/HealthCheckerBuilder.swift; sourceTree = "<group>"; };
+		BF2180612B9732DC00005292 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Data/Core/Network/NetworkManager.swift; sourceTree = "<group>"; };
+		BF2180622B9732DC00005292 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = Data/Core/Network/NetworkError.swift; sourceTree = "<group>"; };
+		BF2180632B9732DC00005292 /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSession.swift; path = Data/Core/Network/NetworkSession.swift; sourceTree = "<group>"; };
+		BF2180642B9732DC00005292 /* JSONNetworkDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONNetworkDeserializer.swift; path = Data/Core/Network/JSONNetworkDeserializer.swift; sourceTree = "<group>"; };
+		BF2180692B97330200005292 /* NetworkSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSerializable.swift; path = Data/Core/Network/Interface/NetworkSerializable.swift; sourceTree = "<group>"; };
+		BF21806A2B97330200005292 /* NetworkDeserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkDeserializable.swift; path = Data/Core/Network/Interface/NetworkDeserializable.swift; sourceTree = "<group>"; };
+		BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSessionProtocol.swift; path = Data/Core/Network/Interface/NetworkSessionProtocol.swift; sourceTree = "<group>"; };
+		BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkBuilderProtocol.swift; path = Data/Core/Network/Interface/NetworkBuilderProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +139,7 @@
 		BF217FCF2B90447500005292 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				BF2180412B95DBA400005292 /* Model */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -126,7 +147,8 @@
 		BF217FD02B90447E00005292 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BF217FBF2B90445700005292 /* ViewController.swift */,
+				BF21803D2B95D92A00005292 /* ViewModel */,
+				BF21803E2B95D93000005292 /* ViewController */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -134,8 +156,8 @@
 		BF217FD12B90448800005292 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				BF217FD32B9049D900005292 /* DTO */,
-				BF217FD82B924D0300005292 /* Network */,
+				BF2180402B95D98100005292 /* Feature */,
+				BF21803F2B95D96D00005292 /* Core */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -153,8 +175,11 @@
 		BF217FD32B9049D900005292 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				BF217FD42B904B2200005292 /* ProductDTO.swift */,
-				BF217FD62B90685100005292 /* ProductDTOList.swift */,
+				BF2180512B97329C00005292 /* Currency.swift */,
+				BF2180562B9732A900005292 /* ProductImage.swift */,
+				BF2180542B9732A900005292 /* Vendor.swift */,
+				BF2180552B9732A900005292 /* ProductDTO.swift */,
+				BF2180532B9732A900005292 /* ProductDTOList.swift */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -162,9 +187,10 @@
 		BF217FD82B924D0300005292 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BF217FD92B924D4200005292 /* NetworkManager.swift */,
-				BF217FDB2B924D5200005292 /* NetworkError.swift */,
-				BF2180302B93112600005292 /* JSONNetworkDeserializer.swift */,
+				BF2180612B9732DC00005292 /* NetworkManager.swift */,
+				BF2180622B9732DC00005292 /* NetworkError.swift */,
+				BF2180632B9732DC00005292 /* NetworkSession.swift */,
+				BF2180642B9732DC00005292 /* JSONNetworkDeserializer.swift */,
 				BF217FDF2B924E3500005292 /* Interface */,
 			);
 			name = Network;
@@ -173,10 +199,10 @@
 		BF217FDF2B924E3500005292 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				BF217FE22B9250B500005292 /* NetworkSerializable.swift */,
-				BF217FEC2B92589E00005292 /* NetworkDeserializable.swift */,
-				BF217FE02B924E5300005292 /* NetworkBuilderProtocol.swift */,
-				BF217FE62B92541E00005292 /* NetworkSessionProtocol.swift */,
+				BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */,
+				BF21806A2B97330200005292 /* NetworkDeserializable.swift */,
+				BF2180692B97330200005292 /* NetworkSerializable.swift */,
+				BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -184,6 +210,7 @@
 		BF21801A2B9303A400005292 /* GundyMarketTests */ = {
 			isa = PBXGroup;
 			children = (
+				BF21804C2B95EB1500005292 /* DateCalculatorTests */,
 				BF2180222B9303A800005292 /* JSONDecodingTests */,
 				BF2180292B930A2A00005292 /* NetworkManagerTests */,
 			);
@@ -209,6 +236,65 @@
 				BF21802A2B930A4100005292 /* NetworkManagerTests.swift */,
 			);
 			path = NetworkManagerTests;
+			sourceTree = "<group>";
+		};
+		BF2180362B95D66F00005292 /* OpenMarketBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				BF21805D2B9732C000005292 /* HealthCheckerBuilder.swift */,
+				BF21805B2B9732C000005292 /* ProductListBuilder.swift */,
+				BF21805C2B9732C000005292 /* ProductBuilder.swift */,
+			);
+			name = OpenMarketBuilder;
+			sourceTree = "<group>";
+		};
+		BF21803D2B95D92A00005292 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BF21803E2B95D93000005292 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BF217FBF2B90445700005292 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BF21803F2B95D96D00005292 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BF217FD82B924D0300005292 /* Network */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		BF2180402B95D98100005292 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				BF217FD32B9049D900005292 /* DTO */,
+				BF2180362B95D66F00005292 /* OpenMarketBuilder */,
+			);
+			name = Feature;
+			sourceTree = "<group>";
+		};
+		BF2180412B95DBA400005292 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF2180422B95DBCC00005292 /* Product.swift */,
+				BF21804A2B95E88900005292 /* DateCalculator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF21804C2B95EB1500005292 /* DateCalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF21804D2B95EB4800005292 /* DateCalculatorTests.swift */,
+			);
+			path = DateCalculatorTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,18 +399,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF217FE72B92541E00005292 /* NetworkSessionProtocol.swift in Sources */,
-				BF217FDA2B924D4200005292 /* NetworkManager.swift in Sources */,
-				BF217FDC2B924D5200005292 /* NetworkError.swift in Sources */,
-				BF217FE12B924E5300005292 /* NetworkBuilderProtocol.swift in Sources */,
-				BF2180312B93112600005292 /* JSONNetworkDeserializer.swift in Sources */,
-				BF217FD72B90685100005292 /* ProductDTOList.swift in Sources */,
+				BF21805F2B9732C000005292 /* ProductBuilder.swift in Sources */,
+				BF2180662B9732DC00005292 /* NetworkError.swift in Sources */,
+				BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */,
+				BF2180592B9732A900005292 /* ProductDTO.swift in Sources */,
+				BF2180652B9732DC00005292 /* NetworkManager.swift in Sources */,
+				BF2180572B9732A900005292 /* ProductDTOList.swift in Sources */,
+				BF2180522B97329C00005292 /* Currency.swift in Sources */,
+				BF2180432B95DBCC00005292 /* Product.swift in Sources */,
+				BF21804B2B95E88900005292 /* DateCalculator.swift in Sources */,
 				BF217FC02B90445700005292 /* ViewController.swift in Sources */,
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
+				BF2180582B9732A900005292 /* Vendor.swift in Sources */,
+				BF21805E2B9732C000005292 /* ProductListBuilder.swift in Sources */,
 				BF217FBE2B90445700005292 /* SceneDelegate.swift in Sources */,
-				BF217FE32B9250B500005292 /* NetworkSerializable.swift in Sources */,
-				BF217FD52B904B2200005292 /* ProductDTO.swift in Sources */,
-				BF217FED2B92589E00005292 /* NetworkDeserializable.swift in Sources */,
+				BF21806D2B97330200005292 /* NetworkSerializable.swift in Sources */,
+				BF21806E2B97330200005292 /* NetworkDeserializable.swift in Sources */,
+				BF21805A2B9732A900005292 /* ProductImage.swift in Sources */,
+				BF2180672B9732DC00005292 /* NetworkSession.swift in Sources */,
+				BF2180602B9732C000005292 /* HealthCheckerBuilder.swift in Sources */,
+				BF2180682B9732DC00005292 /* JSONNetworkDeserializer.swift in Sources */,
+				BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +430,7 @@
 				BF21802F2B930D9800005292 /* DummyNetworkBuilder.swift in Sources */,
 				BF21802B2B930A4100005292 /* NetworkManagerTests.swift in Sources */,
 				BF2180262B9305E800005292 /* ProductDTODecodingTests.swift in Sources */,
+				BF21804E2B95EB4800005292 /* DateCalculatorTests.swift in Sources */,
 				BF21801C2B9303A400005292 /* ProductDTOListDecodingTests.swift in Sources */,
 				BF21802D2B930ADF00005292 /* StubNetworkSession.swift in Sources */,
 			);
