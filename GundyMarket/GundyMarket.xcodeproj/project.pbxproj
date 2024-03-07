@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBB2B90445700005292 /* AppDelegate.swift */; };
 		BF217FBE2B90445700005292 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBD2B90445700005292 /* SceneDelegate.swift */; };
-		BF217FC02B90445700005292 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBF2B90445700005292 /* ViewController.swift */; };
+		BF217FC02B90445700005292 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBF2B90445700005292 /* ProductListViewController.swift */; };
 		BF217FC52B90445900005292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF217FC42B90445900005292 /* Assets.xcassets */; };
 		BF217FC82B90445900005292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF217FC62B90445900005292 /* LaunchScreen.storyboard */; };
 		BF21801C2B9303A400005292 /* ProductDTOListDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21801B2B9303A400005292 /* ProductDTOListDecodingTests.swift */; };
@@ -54,7 +54,7 @@
 		BF217FB82B90445700005292 /* GundyMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GundyMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF217FBB2B90445700005292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF217FBD2B90445700005292 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF217FBF2B90445700005292 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF217FBF2B90445700005292 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		BF217FC42B90445900005292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF217FC72B90445900005292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF217FC92B90445900005292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +149,7 @@
 			children = (
 				BF21803D2B95D92A00005292 /* ViewModel */,
 				BF21803E2B95D93000005292 /* ViewController */,
+				BF2180712B97362B00005292 /* View */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -200,8 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */,
-				BF21806A2B97330200005292 /* NetworkDeserializable.swift */,
 				BF2180692B97330200005292 /* NetworkSerializable.swift */,
+				BF21806A2B97330200005292 /* NetworkDeserializable.swift */,
 				BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */,
 			);
 			name = Interface;
@@ -258,7 +259,7 @@
 		BF21803E2B95D93000005292 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BF217FBF2B90445700005292 /* ViewController.swift */,
+				BF217FBF2B90445700005292 /* ProductListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -295,6 +296,13 @@
 				BF21804D2B95EB4800005292 /* DateCalculatorTests.swift */,
 			);
 			path = DateCalculatorTests;
+			sourceTree = "<group>";
+		};
+		BF2180712B97362B00005292 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,7 +416,7 @@
 				BF2180522B97329C00005292 /* Currency.swift in Sources */,
 				BF2180432B95DBCC00005292 /* Product.swift in Sources */,
 				BF21804B2B95E88900005292 /* DateCalculator.swift in Sources */,
-				BF217FC02B90445700005292 /* ViewController.swift in Sources */,
+				BF217FC02B90445700005292 /* ProductListViewController.swift in Sources */,
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
 				BF2180582B9732A900005292 /* Vendor.swift in Sources */,
 				BF21805E2B9732C000005292 /* ProductListBuilder.swift in Sources */,

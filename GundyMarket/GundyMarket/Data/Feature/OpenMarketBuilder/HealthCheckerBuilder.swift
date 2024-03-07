@@ -13,6 +13,6 @@ struct HealthCheckerBuilder: NetworkBuilderProtocol {
     // MARK: - Public property
     
     var baseURL: String { "http://openmarket.yagom-academy.kr" }
-    var path: String { "/healthChecker" }
+    var path: String { "healthChecker" }
     var deserializer: NetworkDeserializable = JSONNetworkDeserializer(decoder: .init())
 }

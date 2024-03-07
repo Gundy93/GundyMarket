@@ -13,7 +13,13 @@ struct ProductListBuilder: NetworkBuilderProtocol {
     // MARK: - Public property
     
     var baseURL: String { "http://openmarket.yagom-academy.kr" }
-    var path: String { "/api/products?page_no=\(pageNumber)&items_per_page=\(itemsPerPage)" }
+    var path: String { "api/products" }
+    var queryItems: [String : String] {
+        [
+            "page_no" : String(pageNumber),
+            "items_per_page" : String(itemsPerPage)
+        ]
+    }
     var deserializer: NetworkDeserializable = JSONNetworkDeserializer(decoder: .init())
     
     // MARK: - Private property

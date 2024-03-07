@@ -12,7 +12,7 @@ struct DummyProductDetailBuilder: NetworkBuilderProtocol {
     typealias Response = ProductDTO
     
     var baseURL: String { "http://openmarket.yagom-academy.kr" }
-    var path: String { "/api/products/2456" }
+    var path: String { "api/products/2456" }
     let deserializer: GundyMarket.NetworkDeserializable = JSONNetworkDeserializer(decoder: .init())
 }
 
@@ -20,7 +20,13 @@ struct DummyProductListBuilder: NetworkBuilderProtocol {
     typealias Response = ProductDTOList
     
     var baseURL: String { "http://openmarket.yagom-academy.kr" }
-    var path: String { "/api/products?page_no=2&items_per_page=20" }
+    var path: String { "api/products" }
+    var queryItems: [String : String] {
+        [
+            "page_no" : "2",
+            "items_per_page" : "20"
+        ]
+    }
     let deserializer: GundyMarket.NetworkDeserializable = JSONNetworkDeserializer(decoder: .init())
 }
 
@@ -28,7 +34,13 @@ struct DummyDeserializeFailBuilder: NetworkBuilderProtocol {
     typealias Response = ProductDTO
     
     var baseURL: String { "http://openmarket.yagom-academy.kr" }
-    var path: String { "/api/products?page_no=2&items_per_page=20" }
+    var path: String { "/api/products" }
+    var queryItems: [String : String] {
+        [
+            "page_no" : "2",
+            "items_per_page" : "20"
+        ]
+    }
     let deserializer: GundyMarket.NetworkDeserializable = JSONNetworkDeserializer(decoder: .init())
 }
 

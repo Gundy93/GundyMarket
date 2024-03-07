@@ -50,7 +50,13 @@ final class NetworkManager {
     // MARK: - Private
 
     private func makeRequest<Builder: NetworkBuilderProtocol>(_ builder: Builder) throws -> URLRequest {
-        guard let url = URL(string: builder.baseURL + builder.path) else {
+        var urlString = builder.baseURL + "/" + builder.path
+        
+        if builder.queryItems.isEmpty == false {
+            urlString += "?" + builder.queryItems.map { $0.key + "=" + $0.value }.joined(separator: "&")
+        }
+        
+        guard let url = URL(string: urlString) else {
             throw NetworkError.urlNotFound
         }
         

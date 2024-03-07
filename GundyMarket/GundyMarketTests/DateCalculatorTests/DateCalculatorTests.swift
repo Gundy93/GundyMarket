@@ -15,6 +15,7 @@ final class DateCalculatorTests: XCTestCase {
         try super.setUpWithError()
         
         let formatter = DateFormatter()
+        
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         formatter.timeZone = TimeZone(abbreviation: "UTC")
         sut = DateCalculator(dateFormatter: formatter)
