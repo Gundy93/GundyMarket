@@ -38,6 +38,7 @@
 		BF21806E2B97330200005292 /* NetworkDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806A2B97330200005292 /* NetworkDeserializable.swift */; };
 		BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */; };
 		BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */; };
+		BFBE05ED2B99DB680034F32F /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE05EC2B99DB680034F32F /* ProductListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		BF21806A2B97330200005292 /* NetworkDeserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkDeserializable.swift; path = Data/Core/Network/Interface/NetworkDeserializable.swift; sourceTree = "<group>"; };
 		BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSessionProtocol.swift; path = Data/Core/Network/Interface/NetworkSessionProtocol.swift; sourceTree = "<group>"; };
 		BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkBuilderProtocol.swift; path = Data/Core/Network/Interface/NetworkBuilderProtocol.swift; sourceTree = "<group>"; };
+		BFBE05EC2B99DB680034F32F /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 		BF2180712B97362B00005292 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BFBE05EC2B99DB680034F32F /* ProductListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				BF2180522B97329C00005292 /* Currency.swift in Sources */,
 				BF2180432B95DBCC00005292 /* Product.swift in Sources */,
 				BF21804B2B95E88900005292 /* DateCalculator.swift in Sources */,
+				BFBE05ED2B99DB680034F32F /* ProductListCell.swift in Sources */,
 				BF217FC02B90445700005292 /* ProductListViewController.swift in Sources */,
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
 				BF2180582B9732A900005292 /* Vendor.swift in Sources */,
