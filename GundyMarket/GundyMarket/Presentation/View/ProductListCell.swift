@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class ProductListCell: UICollectionViewCell {
+final class ProductListCell: UICollectionViewListCell {
+    static var reuseIdentifier: String { "ProductListCell" }
     
     // MARK: - Private property
     
@@ -119,6 +120,9 @@ final class ProductListCell: UICollectionViewCell {
                 
                 thumbnailImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
                 thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor),
+                
+                separatorLayoutGuide.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
+                separatorLayoutGuide.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
             ]
         )
     }
