@@ -8,11 +8,11 @@
 import UIKit
 
 final class ProductListViewController: UIViewController {
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, Product> 
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Product>
+    typealias DataSource = UICollectionViewDiffableDataSource<Int, Product>
     
     // MARK: - Private property
     
+    private let viewModel: GundyMarketViewModel
     private let productCollectionView: UICollectionView = {
         let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
@@ -27,32 +27,27 @@ final class ProductListViewController: UIViewController {
         return collectionView
     }()
     private var dataSource: DataSource?
+    private var isLoading = true
     
     // MARK: - Lifecycle
+    
+    init(viewModel: GundyMarketViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureHierarchy()
         configureLayout()
-        configureDataSource()
-    }
-    
-    // MARK: - Public
-    
-    func setSnapshot(with products: [Product]) {
-        var snapshot = Snapshot()
-        
-        snapshot.appendSections([0])
-        snapshot.appendItems(products)
-        dataSource?.apply(snapshot)
-    }
-    
-    func appendSnapshotItems(_ product: [Product]) {
-        guard var snapshot = dataSource?.snapshot() else { return }
-        
-        snapshot.appendItems(product)
-        dataSource?.apply(snapshot)
+        configureCollectionView()
     }
     
     // MARK: - Private
@@ -74,7 +69,7 @@ final class ProductListViewController: UIViewController {
         )
     }
     
-    private func configureDataSource() {
+    private func configureCollectionView() {
         dataSource = DataSource(collectionView: productCollectionView) { collectionView, indexPath, product in 
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ProductListCell.reuseIdentifier,
@@ -90,29 +85,48 @@ final class ProductListViewController: UIViewController {
             
             return cell
         }
+        
+        viewModel.loadNewList()
+        productCollectionView.delegate = self
+    }
+}
+
+extension ProductListViewController: ProductListViewModelDelegate {
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Product>
+    
+    // MARK: - Public
+    
+    func setList(with products: [Product]) {
+        var snapshot = Snapshot()
+        
+        snapshot.appendSections([0])
+        snapshot.appendItems(products)
+        dataSource?.apply(snapshot)
+        isLoading = false
+    }
+    
+    func appendNewItems(_ product: [Product]) {
+        guard var snapshot = dataSource?.snapshot() else { return }
+        
+        snapshot.appendItems(product)
+        dataSource?.apply(snapshot)
+        isLoading = false
+    }
+}
+
+extension ProductListViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard isLoading == false,
+              scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height * 2 else { return }
+        
+        isLoading = true
+        viewModel.loadMoreList()
     }
 }
 
 #Preview {
-    let viewController = ProductListViewController()
-    
-    Task {
-        viewController.setSnapshot(
-            with: [
-                .init(
-                    id: 2456,
-                    vendorName: "zhilly",
-                    name: "사진 모음집",
-                    description: "AI로 그린 사진 모음입니다",
-                    thumbnailURL: "https://s3.ap-northeast-2.amazonaws.com/media.yagom-academy.kr/training-resources/48/20240207/b5b494eac59a11eeaa7e89c63665c7a3_thumb.png",
-                    currency: .krw,
-                    price: 1000,
-                    issuedAt: "2024-02-07T00:00:00",
-                    isEdited: false
-                )
-            ]
-        )
-    }
+    let viewModel = GundyMarketViewModel(networkManager: .init(session: NetworkSession(session: .shared)))
+    let viewController = ProductListViewController(viewModel: viewModel)
     
     return viewController
 }

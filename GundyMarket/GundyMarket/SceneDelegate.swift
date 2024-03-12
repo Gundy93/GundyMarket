@@ -16,5 +16,14 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
+        window?.rootViewController = ProductListViewController(
+            viewModel: GundyMarketViewModel(
+                networkManager: .init(
+                    session: NetworkSession(
+                        session: .shared
+                    )
+                )
+            )
+        )
     }
 }

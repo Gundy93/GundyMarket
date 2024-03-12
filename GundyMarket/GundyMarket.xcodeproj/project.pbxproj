@@ -39,6 +39,8 @@
 		BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */; };
 		BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */; };
 		BFBE05ED2B99DB680034F32F /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE05EC2B99DB680034F32F /* ProductListCell.swift */; };
+		BFBE06102BA074EE0034F32F /* GundyMarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE060F2BA074EE0034F32F /* GundyMarketViewModel.swift */; };
+		BFBE06122BA075070034F32F /* ProductListViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06112BA075070034F32F /* ProductListViewModelDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSessionProtocol.swift; path = Data/Core/Network/Interface/NetworkSessionProtocol.swift; sourceTree = "<group>"; };
 		BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkBuilderProtocol.swift; path = Data/Core/Network/Interface/NetworkBuilderProtocol.swift; sourceTree = "<group>"; };
 		BFBE05EC2B99DB680034F32F /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
+		BFBE060F2BA074EE0034F32F /* GundyMarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GundyMarketViewModel.swift; sourceTree = "<group>"; };
+		BFBE06112BA075070034F32F /* ProductListViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +258,8 @@
 		BF21803D2B95D92A00005292 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BFBE060F2BA074EE0034F32F /* GundyMarketViewModel.swift */,
+				BFBE06112BA075070034F32F /* ProductListViewModelDelegate.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -423,6 +429,7 @@
 				BF217FC02B90445700005292 /* ProductListViewController.swift in Sources */,
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
 				BF2180582B9732A900005292 /* Vendor.swift in Sources */,
+				BFBE06122BA075070034F32F /* ProductListViewModelDelegate.swift in Sources */,
 				BF21805E2B9732C000005292 /* ProductListBuilder.swift in Sources */,
 				BF217FBE2B90445700005292 /* SceneDelegate.swift in Sources */,
 				BF21806D2B97330200005292 /* NetworkSerializable.swift in Sources */,
@@ -431,6 +438,7 @@
 				BF2180672B9732DC00005292 /* NetworkSession.swift in Sources */,
 				BF2180602B9732C000005292 /* HealthCheckerBuilder.swift in Sources */,
 				BF2180682B9732DC00005292 /* JSONNetworkDeserializer.swift in Sources */,
+				BFBE06102BA074EE0034F32F /* GundyMarketViewModel.swift in Sources */,
 				BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

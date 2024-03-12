@@ -118,8 +118,8 @@ final class ProductListCell: UICollectionViewListCell {
                 contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
                 contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 
-                thumbnailImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
-                thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor),
+                thumbnailImageView.widthAnchor.constraint(equalToConstant: 120),
+                thumbnailImageView.heightAnchor.constraint(equalToConstant: 120),
                 
                 separatorLayoutGuide.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
                 separatorLayoutGuide.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
