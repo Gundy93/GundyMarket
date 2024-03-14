@@ -41,6 +41,12 @@
 		BFBE05ED2B99DB680034F32F /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE05EC2B99DB680034F32F /* ProductListCell.swift */; };
 		BFBE06102BA074EE0034F32F /* GundyMarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE060F2BA074EE0034F32F /* GundyMarketViewModel.swift */; };
 		BFBE06122BA075070034F32F /* ProductListViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06112BA075070034F32F /* ProductListViewModelDelegate.swift */; };
+		BFBE06152BA315230034F32F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06142BA315230034F32F /* Cache.swift */; };
+		BFBE06182BA315B60034F32F /* CacheStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06172BA315B60034F32F /* CacheStorageProtocol.swift */; };
+		BFBE061A2BA317D30034F32F /* UserDefaultsCacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06192BA317D30034F32F /* UserDefaultsCacheStorage.swift */; };
+		BFBE061C2BA318260034F32F /* NSCacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE061B2BA318260034F32F /* NSCacheStorage.swift */; };
+		BFBE061E2BA319780034F32F /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE061D2BA319780034F32F /* CacheProtocol.swift */; };
+		BFBE06202BA3199A0034F32F /* ImageDataCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE061F2BA3199A0034F32F /* ImageDataCacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +97,12 @@
 		BFBE05EC2B99DB680034F32F /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		BFBE060F2BA074EE0034F32F /* GundyMarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GundyMarketViewModel.swift; sourceTree = "<group>"; };
 		BFBE06112BA075070034F32F /* ProductListViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelDelegate.swift; sourceTree = "<group>"; };
+		BFBE06142BA315230034F32F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		BFBE06172BA315B60034F32F /* CacheStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorageProtocol.swift; sourceTree = "<group>"; };
+		BFBE06192BA317D30034F32F /* UserDefaultsCacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCacheStorage.swift; sourceTree = "<group>"; };
+		BFBE061B2BA318260034F32F /* NSCacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCacheStorage.swift; sourceTree = "<group>"; };
+		BFBE061D2BA319780034F32F /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
+		BFBE061F2BA3199A0034F32F /* ImageDataCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				BF217FD82B924D0300005292 /* Network */,
+				BFBE06132BA314070034F32F /* Cache */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -312,6 +325,27 @@
 				BFBE05EC2B99DB680034F32F /* ProductListCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BFBE06132BA314070034F32F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE061F2BA3199A0034F32F /* ImageDataCacheManager.swift */,
+				BFBE06142BA315230034F32F /* Cache.swift */,
+				BFBE061B2BA318260034F32F /* NSCacheStorage.swift */,
+				BFBE06192BA317D30034F32F /* UserDefaultsCacheStorage.swift */,
+				BFBE06162BA315A50034F32F /* Interface */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
+		BFBE06162BA315A50034F32F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE061D2BA319780034F32F /* CacheProtocol.swift */,
+				BFBE06172BA315B60034F32F /* CacheStorageProtocol.swift */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,7 +451,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF21805F2B9732C000005292 /* ProductBuilder.swift in Sources */,
+				BFBE061C2BA318260034F32F /* NSCacheStorage.swift in Sources */,
 				BF2180662B9732DC00005292 /* NetworkError.swift in Sources */,
+				BFBE06182BA315B60034F32F /* CacheStorageProtocol.swift in Sources */,
 				BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */,
 				BF2180592B9732A900005292 /* ProductDTO.swift in Sources */,
 				BF2180652B9732DC00005292 /* NetworkManager.swift in Sources */,
@@ -430,9 +466,12 @@
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
 				BF2180582B9732A900005292 /* Vendor.swift in Sources */,
 				BFBE06122BA075070034F32F /* ProductListViewModelDelegate.swift in Sources */,
+				BFBE06202BA3199A0034F32F /* ImageDataCacheManager.swift in Sources */,
+				BFBE06152BA315230034F32F /* Cache.swift in Sources */,
 				BF21805E2B9732C000005292 /* ProductListBuilder.swift in Sources */,
 				BF217FBE2B90445700005292 /* SceneDelegate.swift in Sources */,
 				BF21806D2B97330200005292 /* NetworkSerializable.swift in Sources */,
+				BFBE061A2BA317D30034F32F /* UserDefaultsCacheStorage.swift in Sources */,
 				BF21806E2B97330200005292 /* NetworkDeserializable.swift in Sources */,
 				BF21805A2B9732A900005292 /* ProductImage.swift in Sources */,
 				BF2180672B9732DC00005292 /* NetworkSession.swift in Sources */,
@@ -440,6 +479,7 @@
 				BF2180682B9732DC00005292 /* JSONNetworkDeserializer.swift in Sources */,
 				BFBE06102BA074EE0034F32F /* GundyMarketViewModel.swift in Sources */,
 				BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */,
+				BFBE061E2BA319780034F32F /* CacheProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

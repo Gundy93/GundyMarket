@@ -21,23 +21,13 @@ final class NetworkSession: NetworkSessionProtocol {
 
     // MARK: - Public
 
-    func dataTask(
-        with request: URLRequest,
-        completion: @escaping (Result<Data, Error>) -> Void
-    ) {
-        let task = session.dataTask(with: request) { (data, _, error) in
-            if let error {
-                completion(.failure(error))
-                return
-            }
-
-            guard let data else {
-                completion(.failure(NetworkError.responseNotFound))
-                return
-            }
-
-            completion(.success(data))
+    func dataTask(with request: URLRequest) async -> Result<Data, Error> {
+        do {
+            let (data, _) = try await session.data(for: request)
+            
+            return .success(data)
+        } catch {
+            return .failure(error)
         }
-        task.resume()
     }
 }

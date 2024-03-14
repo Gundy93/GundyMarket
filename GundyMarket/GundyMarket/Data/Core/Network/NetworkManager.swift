@@ -21,29 +21,21 @@ final class NetworkManager {
 
     // MARK: - Public
 
-    func request<Builder: NetworkBuilderProtocol>(
-        _ builder: Builder,
-        completion: @escaping (Result<Builder.Response, Error>) -> Void
-    ) {
+    func request<Builder: NetworkBuilderProtocol>(_ builder: Builder) async -> Result<Builder.Response, Error> {
         do {
             let request = try makeRequest(builder)
+            let result = await session.dataTask(with: request)
             
-            session.dataTask(with: request) { result in
-                switch result {
-                case .success(let data):
-                    do {
-                        let response: Builder.Response = try builder.deserializer.deserialize(data)
-                        
-                        completion(.success(response))
-                    } catch {
-                        completion(.failure(error))
-                    }
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+            switch result {
+            case .success(let data):
+                let response: Builder.Response = try builder.deserializer.deserialize(data)
+                
+                return .success(response)
+            case .failure(let error):
+                return .failure(error)
             }
         } catch {
-            completion(.failure(error))
+            return .failure(error)
         }
     }
 
