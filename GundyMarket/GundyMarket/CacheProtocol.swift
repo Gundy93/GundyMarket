@@ -9,5 +9,5 @@ import Foundation
 
 protocol CacheProtocol {
     func get(for key: String) -> Data?
-    func store(_ value: Data, for key: String) throws
+    func store(_ value: Data, for key: String)
 }

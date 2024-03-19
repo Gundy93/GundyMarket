@@ -31,7 +31,10 @@ struct ProductDTO: Decodable {
 }
 
 extension ProductDTO {
-    func toDomain() -> Product {
+    func toDomain(
+        numberFormatter: NumberFormatter?,
+        dateFormatter: DateFormatter?
+    ) -> Product {
         Product(
             id: id,
             vendorName: vendorName ?? vendor?.name,
@@ -39,8 +42,8 @@ extension ProductDTO {
             description: description,
             thumbnailURL: thumbnailURL,
             currency: currency,
-            price: price,
-            issuedAt: issuedAt,
+            priceText: numberFormatter?.string(from: price as NSNumber) ?? "0",
+            issuedAt: dateFormatter?.date(from: issuedAt) ?? .now,
             isEdited: createdAt != issuedAt
         )
     }

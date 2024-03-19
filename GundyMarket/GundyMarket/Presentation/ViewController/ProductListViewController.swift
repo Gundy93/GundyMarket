@@ -48,6 +48,7 @@ final class ProductListViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureCollectionView()
+        configureRefreshControl()
     }
     
     // MARK: - Private
@@ -70,24 +71,58 @@ final class ProductListViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        productCollectionView.delegate = self
         dataSource = DataSource(collectionView: productCollectionView) { collectionView, indexPath, product in 
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ProductListCell.reuseIdentifier,
                 for: indexPath
             ) as? ProductListCell else { return ProductListCell() }
             
-            cell.setThumbnail(image: nil)
+            cell.setId(product.id)
             cell.setTexts(
                 name: product.name,
-                date: product.issuedAt,
-                price: String(product.price)
+                date: self.viewModel.string(for: product.issuedAt),
+                price: product.priceText + (product.currency == .krw ? "원" : "달러")
             )
+            cell.setThumbnail(image: nil, for: product.id)
+            Task {
+                guard let data = await self.viewModel.data(for: product.thumbnailURL),
+                      let image = UIImage(data: data) else { return }
+                
+                cell.setThumbnail(
+                    image: image,
+                    for: product.id
+                )
+            }
             
             return cell
         }
         
-        viewModel.loadNewList()
-        productCollectionView.delegate = self
+        Task {
+            await viewModel.loadNewList()
+        }
+    }
+    
+    private func configureRefreshControl() {
+        productCollectionView.refreshControl = .init()
+        productCollectionView.refreshControl?.tintColor = .systemOrange
+        productCollectionView.refreshControl?.addTarget(
+            self,
+            action: #selector(handleRefreshControl),
+            for: .valueChanged
+        )
+    }
+    
+    @objc
+    func handleRefreshControl() {
+        isLoading = true
+        
+        Task {
+            await viewModel.loadNewList()
+            try? await Task.sleep(nanoseconds: 500000000)
+            self.productCollectionView.refreshControl?.endRefreshing()
+            isLoading = false
+        }
     }
 }
 
@@ -120,13 +155,48 @@ extension ProductListViewController: UICollectionViewDelegate {
               scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height * 2 else { return }
         
         isLoading = true
-        viewModel.loadMoreList()
+        Task {
+            await viewModel.loadMoreList()
+        }
     }
 }
 
 #Preview {
-    let viewModel = GundyMarketViewModel(networkManager: .init(session: NetworkSession(session: .shared)))
-    let viewController = ProductListViewController(viewModel: viewModel)
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
     
-    return viewController
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+    
+    let imageCacheManager = ImageDataCacheManager(
+        memoryCache: Cache(
+            storage: NSCacheStorage(
+                nsCache: .init()
+            )
+        ),
+        diskCache: Cache(
+            storage: UserDefaultsCacheStorage(
+                userDefaults: .standard
+            )
+        ),
+        session: NetworkSession(
+            session: .shared
+        )
+    )
+    
+    let networkManager = NetworkManager(
+        session: NetworkSession(
+            session: .shared
+        )
+    )
+    
+    let viewModel = GundyMarketViewModel(
+        numberFormatter: numberFormatter,
+        dateFormatter: dateFormatter,
+        imageCacheManager: imageCacheManager,
+        networkManager: networkManager
+    )
+    
+    return ProductListViewController(viewModel: viewModel)
 }

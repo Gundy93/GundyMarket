@@ -23,83 +23,75 @@ final class NetworkManagerTests: XCTestCase {
         sut = nil
     }
     
-    func testNetworkManager_잘못된_baseURL을_제공하는_Builder를_사용하면_completion에_failure가_전달된다() {
+    func testNetworkManager_잘못된_baseURL을_제공하는_Builder를_사용하면_completion에_failure가_전달된다() async {
         // given
         let builder = DummyURLFailBuilder()
         var number = 0
         
         // when
-        sut.request(builder) { result in
-            switch result {
-            case .success(_):
-                XCTFail()
-            case .failure(_):
-                number = 1
-            }
+        switch await sut.request(builder) {
+        case .success(_):
+            XCTFail()
+        case .failure(_):
+            number = 1
         }
         
         // then
         XCTAssertEqual(number, 1)
     }
     
-    func testNetworkManager_잘못된_path를_제공하는_Builder를_사용하면_completion에_failure가_전달된다() {
+    func testNetworkManager_잘못된_path를_제공하는_Builder를_사용하면_completion에_failure가_전달된다() async {
         // given
         let builder = DummyPathFailBuilder()
         var number = 0
         
         // when
-        sut.request(builder) { result in
-            switch result {
-            case .success(_):
-                XCTFail()
-            case .failure(_):
-                number = 1
-            }
+        switch await sut.request(builder) {
+        case .success(_):
+            XCTFail()
+        case .failure(_):
+            number = 1
         }
         
         // then
         XCTAssertEqual(number, 1)
     }
     
-    func testNetworkManager_정확한_URL을_제공하지만_deserialize에_실패하면_completion에_failure가_전달된다() {
+    func testNetworkManager_정확한_URL을_제공하지만_deserialize에_실패하면_completion에_failure가_전달된다() async {
         // given
         let builder = DummyDeserializeFailBuilder()
         var number = 0
         
         // when
-        sut.request(builder) { result in
-            switch result {
-            case .success(_):
-                XCTFail()
-            case .failure(_):
-                number = 1
-            }
+        switch await sut.request(builder) {
+        case .success(_):
+            XCTFail()
+        case .failure(_):
+            number = 1
         }
         
         // then
         XCTAssertEqual(number, 1)
     }
     
-    func testNetworkManager_정확한_URL을_제공하는_Builder를_사용하면_completion에_success가_전달된다() {
+    func testNetworkManager_정확한_URL을_제공하는_Builder를_사용하면_completion에_success가_전달된다() async {
         // given
         let builder = DummyProductDetailBuilder()
         var number = 0
         
         // when
-        sut.request(builder) { result in
-            switch result {
-            case .success(_):
-                number = 1
-            case .failure(_):
-                XCTFail()
-            }
+        switch await sut.request(builder) {
+        case .success(_):
+            number = 1
+        case .failure(_):
+            XCTFail()
         }
         
         // then
         XCTAssertEqual(number, 1)
     }
     
-    func testNetworkManager_ProductDTO를_요청하는_Builder를_사용하면_completion에_success로_전달되는_값의_타입은_ProductDTO다() {
+    func testNetworkManager_ProductDTO를_요청하는_Builder를_사용하면_completion에_success로_전달되는_값의_타입은_ProductDTO다() async {
         // given
         let builder = DummyProductDetailBuilder()
         
@@ -107,17 +99,15 @@ final class NetworkManagerTests: XCTestCase {
         let expectedType = ProductDTO.self
         
         // then
-        sut.request(builder) { result in
-            switch result {
-            case .success(let product):
-                XCTAssertEqual(String(describing: type(of: product)), String(describing: expectedType))
-            case .failure(_):
-                XCTFail()
-            }
+        switch await sut.request(builder) {
+        case .success(let product):
+            XCTAssertEqual(String(describing: type(of: product)), String(describing: expectedType))
+        case .failure(_):
+            XCTFail()
         }
     }
     
-    func testNetworkManager_ProductDTO를_요청하는_Builder를_사용하면_completion에_success로_전달되는_값은_예상과_같다() {
+    func testNetworkManager_ProductDTO를_요청하는_Builder를_사용하면_completion에_success로_전달되는_값은_예상과_같다() async {
         // given
         let builder = DummyProductDetailBuilder()
         
@@ -132,24 +122,22 @@ final class NetworkManagerTests: XCTestCase {
         let expectedIssuedAt = "2024-02-07T00:00:00"
         
         // then
-        sut.request(builder) { result in
-            switch result {
-            case .success(let product):
-                XCTAssertEqual(product.id, expectedID)
-                XCTAssertEqual(product.name, expectedName)
-                XCTAssertEqual(product.description, expectedDescription)
-                XCTAssertEqual(product.thumbnailURL, expectedThumbnailURL)
-                XCTAssertEqual(product.currency, expectedCurrency)
-                XCTAssertEqual(product.price, expectedPrice)
-                XCTAssertEqual(product.createdAt, expectedCreatedAt)
-                XCTAssertEqual(product.issuedAt, expectedIssuedAt)
-            case .failure(_):
-                XCTFail()
-            }
+        switch await sut.request(builder) {
+        case .success(let product):
+            XCTAssertEqual(product.id, expectedID)
+            XCTAssertEqual(product.name, expectedName)
+            XCTAssertEqual(product.description, expectedDescription)
+            XCTAssertEqual(product.thumbnailURL, expectedThumbnailURL)
+            XCTAssertEqual(product.currency, expectedCurrency)
+            XCTAssertEqual(product.price, expectedPrice)
+            XCTAssertEqual(product.createdAt, expectedCreatedAt)
+            XCTAssertEqual(product.issuedAt, expectedIssuedAt)
+        case .failure(_):
+            XCTFail()
         }
     }
     
-    func testNetworkManager_ProductDTOList를_요청하는_Builder를_사용하면_completion에_success로_전달되는_값의_타입은_ProductDTOList다() {
+    func testNetworkManager_ProductDTOList를_요청하는_Builder를_사용하면_completion에_success로_전달되는_값의_타입은_ProductDTOList다() async {
         // given
         let builder = DummyProductListBuilder()
         
@@ -157,13 +145,11 @@ final class NetworkManagerTests: XCTestCase {
         let expectedType = ProductDTOList.self
         
         // then
-        sut.request(builder) { result in
-            switch result {
-            case .success(let product):
-                XCTAssertEqual(String(describing: type(of: product)), String(describing: expectedType))
-            case .failure(_):
-                XCTFail()
-            }
+        switch await sut.request(builder) {
+        case .success(let product):
+            XCTAssertEqual(String(describing: type(of: product)), String(describing: expectedType))
+        case .failure(_):
+            XCTFail()
         }
     }
 }

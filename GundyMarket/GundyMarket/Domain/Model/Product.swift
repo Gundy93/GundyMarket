@@ -14,7 +14,7 @@ struct Product: Hashable {
     let description: String
     let thumbnailURL: String
     let currency: Currency
-    let price: Int
-    let issuedAt: String
+    let priceText: String
+    let issuedAt: Date
     let isEdited: Bool
 }

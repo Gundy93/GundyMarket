@@ -11,15 +11,15 @@ final class ImageDataCacheManager {
     
     // MARK: - Private property
     
-    private let memoryCache: Cache
-    private let diskCache: Cache
+    private let memoryCache: CacheProtocol
+    private let diskCache: CacheProtocol
     private let session: NetworkSessionProtocol
     
     // MARK: - Lifecycle
     
     init(
-        memoryCache: Cache,
-        diskCache: Cache,
+        memoryCache: CacheProtocol,
+        diskCache: CacheProtocol,
         session: NetworkSessionProtocol
     ) {
         self.memoryCache = memoryCache

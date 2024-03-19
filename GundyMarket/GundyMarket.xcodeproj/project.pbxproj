@@ -20,8 +20,6 @@
 		BF21802D2B930ADF00005292 /* StubNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802C2B930ADF00005292 /* StubNetworkSession.swift */; };
 		BF21802F2B930D9800005292 /* DummyNetworkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21802E2B930D9800005292 /* DummyNetworkBuilder.swift */; };
 		BF2180432B95DBCC00005292 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180422B95DBCC00005292 /* Product.swift */; };
-		BF21804B2B95E88900005292 /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21804A2B95E88900005292 /* DateCalculator.swift */; };
-		BF21804E2B95EB4800005292 /* DateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21804D2B95EB4800005292 /* DateCalculatorTests.swift */; };
 		BF2180522B97329C00005292 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180512B97329C00005292 /* Currency.swift */; };
 		BF2180572B9732A900005292 /* ProductDTOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180532B9732A900005292 /* ProductDTOList.swift */; };
 		BF2180582B9732A900005292 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2180542B9732A900005292 /* Vendor.swift */; };
@@ -47,6 +45,10 @@
 		BFBE061C2BA318260034F32F /* NSCacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE061B2BA318260034F32F /* NSCacheStorage.swift */; };
 		BFBE061E2BA319780034F32F /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE061D2BA319780034F32F /* CacheProtocol.swift */; };
 		BFBE06202BA3199A0034F32F /* ImageDataCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE061F2BA3199A0034F32F /* ImageDataCacheManager.swift */; };
+		BFBE062D2BA46B6C0034F32F /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE062C2BA46B6C0034F32F /* Time.swift */; };
+		BFBE06362BA854110034F32F /* ImageDataCacheManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06352BA854110034F32F /* ImageDataCacheManagerTests.swift */; };
+		BFBE06382BA855220034F32F /* SpyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06372BA855220034F32F /* SpyCache.swift */; };
+		BFBE063A2BA8589B0034F32F /* SpyImageSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06392BA8589B0034F32F /* SpyImageSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +78,6 @@
 		BF21802C2B930ADF00005292 /* StubNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNetworkSession.swift; sourceTree = "<group>"; };
 		BF21802E2B930D9800005292 /* DummyNetworkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyNetworkBuilder.swift; sourceTree = "<group>"; };
 		BF2180422B95DBCC00005292 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		BF21804A2B95E88900005292 /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
-		BF21804D2B95EB4800005292 /* DateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculatorTests.swift; sourceTree = "<group>"; };
 		BF2180512B97329C00005292 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = Data/Feature/DTO/Currency.swift; sourceTree = "<group>"; };
 		BF2180532B9732A900005292 /* ProductDTOList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductDTOList.swift; path = Data/Feature/DTO/ProductDTOList.swift; sourceTree = "<group>"; };
 		BF2180542B9732A900005292 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendor.swift; path = Data/Feature/DTO/Vendor.swift; sourceTree = "<group>"; };
@@ -103,6 +103,10 @@
 		BFBE061B2BA318260034F32F /* NSCacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCacheStorage.swift; sourceTree = "<group>"; };
 		BFBE061D2BA319780034F32F /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		BFBE061F2BA3199A0034F32F /* ImageDataCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataCacheManager.swift; sourceTree = "<group>"; };
+		BFBE062C2BA46B6C0034F32F /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		BFBE06352BA854110034F32F /* ImageDataCacheManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataCacheManagerTests.swift; sourceTree = "<group>"; };
+		BFBE06372BA855220034F32F /* SpyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyCache.swift; sourceTree = "<group>"; };
+		BFBE06392BA8589B0034F32F /* SpyImageSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyImageSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,9 +233,9 @@
 		BF21801A2B9303A400005292 /* GundyMarketTests */ = {
 			isa = PBXGroup;
 			children = (
-				BF21804C2B95EB1500005292 /* DateCalculatorTests */,
 				BF2180222B9303A800005292 /* JSONDecodingTests */,
 				BF2180292B930A2A00005292 /* NetworkManagerTests */,
+				BFBE06342BA853EA0034F32F /* ImageDataCacheManager */,
 			);
 			path = GundyMarketTests;
 			sourceTree = "<group>";
@@ -306,17 +310,9 @@
 			isa = PBXGroup;
 			children = (
 				BF2180422B95DBCC00005292 /* Product.swift */,
-				BF21804A2B95E88900005292 /* DateCalculator.swift */,
+				BFBE062C2BA46B6C0034F32F /* Time.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		BF21804C2B95EB1500005292 /* DateCalculatorTests */ = {
-			isa = PBXGroup;
-			children = (
-				BF21804D2B95EB4800005292 /* DateCalculatorTests.swift */,
-			);
-			path = DateCalculatorTests;
 			sourceTree = "<group>";
 		};
 		BF2180712B97362B00005292 /* View */ = {
@@ -346,6 +342,16 @@
 				BFBE06172BA315B60034F32F /* CacheStorageProtocol.swift */,
 			);
 			name = Interface;
+			sourceTree = "<group>";
+		};
+		BFBE06342BA853EA0034F32F /* ImageDataCacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE06372BA855220034F32F /* SpyCache.swift */,
+				BFBE06392BA8589B0034F32F /* SpyImageSession.swift */,
+				BFBE06352BA854110034F32F /* ImageDataCacheManagerTests.swift */,
+			);
+			name = ImageDataCacheManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,9 +466,9 @@
 				BF2180572B9732A900005292 /* ProductDTOList.swift in Sources */,
 				BF2180522B97329C00005292 /* Currency.swift in Sources */,
 				BF2180432B95DBCC00005292 /* Product.swift in Sources */,
-				BF21804B2B95E88900005292 /* DateCalculator.swift in Sources */,
 				BFBE05ED2B99DB680034F32F /* ProductListCell.swift in Sources */,
 				BF217FC02B90445700005292 /* ProductListViewController.swift in Sources */,
+				BFBE062D2BA46B6C0034F32F /* Time.swift in Sources */,
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
 				BF2180582B9732A900005292 /* Vendor.swift in Sources */,
 				BFBE06122BA075070034F32F /* ProductListViewModelDelegate.swift in Sources */,
@@ -489,10 +495,12 @@
 			files = (
 				BF21802F2B930D9800005292 /* DummyNetworkBuilder.swift in Sources */,
 				BF21802B2B930A4100005292 /* NetworkManagerTests.swift in Sources */,
+				BFBE06382BA855220034F32F /* SpyCache.swift in Sources */,
+				BFBE06362BA854110034F32F /* ImageDataCacheManagerTests.swift in Sources */,
 				BF2180262B9305E800005292 /* ProductDTODecodingTests.swift in Sources */,
-				BF21804E2B95EB4800005292 /* DateCalculatorTests.swift in Sources */,
 				BF21801C2B9303A400005292 /* ProductDTOListDecodingTests.swift in Sources */,
 				BF21802D2B930ADF00005292 /* StubNetworkSession.swift in Sources */,
+				BFBE063A2BA8589B0034F32F /* SpyImageSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

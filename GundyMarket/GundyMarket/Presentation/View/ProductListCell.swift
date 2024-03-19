@@ -72,6 +72,7 @@ final class ProductListCell: UICollectionViewListCell {
         
         return label
     }()
+    private var id: Int?
     
     // MARK: - Lifecycle
     
@@ -89,13 +90,19 @@ final class ProductListCell: UICollectionViewListCell {
     
     // MARK: - Public
     
+    func setId(_ id: Int?) {
+        self.id = id
+    }
+    
     func setTexts(name: String, date: String, price: String) {
         nameLabel.text = name
         dateLabel.text = date
         priceLabel.text = price
     }
     
-    func setThumbnail(image: UIImage?) {
+    func setThumbnail(image: UIImage?, for id: Int?) {
+        guard id == self.id else { return }
+        
         thumbnailImageView.image = image
     }
     
@@ -119,20 +126,34 @@ final class ProductListCell: UICollectionViewListCell {
                 contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 
                 thumbnailImageView.widthAnchor.constraint(equalToConstant: 120),
-                thumbnailImageView.heightAnchor.constraint(equalToConstant: 120),
                 
                 separatorLayoutGuide.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
                 separatorLayoutGuide.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
             ]
         )
+        
+        let ratioConstraint = thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor)
+        
+        ratioConstraint.priority = .defaultHigh
+        ratioConstraint.isActive = true
     }
 }
 
 #Preview {
     let cell = ProductListCell()
     
-    cell.setTexts(name: "농구공 판매", date: "1일 전", price: "5,000원")
-    cell.setThumbnail(image: UIImage(systemName: "basketball"))
+    cell.setId(1)
+    cell.setTexts(
+        name: "농구공 판매",
+        date: "1일 전",
+        price: "5,000원"
+    )
+    cell.setThumbnail(
+        image: UIImage(
+            systemName: "basketball"
+        ),
+        for: 1
+    )
     
     return cell
 }

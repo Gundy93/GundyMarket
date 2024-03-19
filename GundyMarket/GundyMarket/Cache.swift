@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Cache {
+final class Cache: CacheProtocol {
 
     // MARK: - Private property
 
