@@ -33,7 +33,10 @@ final class ProductListViewController: UIViewController {
     
     init(viewModel: GundyMarketViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(
+            nibName: nil,
+            bundle: nil
+        )
         viewModel.delegate = self
     }
     

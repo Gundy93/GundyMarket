@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF13603F2BA9A7A10030A82D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF13603E2BA9A7A10030A82D /* User.swift */; };
 		BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBB2B90445700005292 /* AppDelegate.swift */; };
 		BF217FBE2B90445700005292 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBD2B90445700005292 /* SceneDelegate.swift */; };
 		BF217FC02B90445700005292 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217FBF2B90445700005292 /* ProductListViewController.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF13603E2BA9A7A10030A82D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF217FB82B90445700005292 /* GundyMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GundyMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF217FBB2B90445700005292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF217FBD2B90445700005292 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				BF2180422B95DBCC00005292 /* Product.swift */,
+				BF13603E2BA9A7A10030A82D /* User.swift */,
 				BFBE062C2BA46B6C0034F32F /* Time.swift */,
 			);
 			path = Model;
@@ -460,6 +463,7 @@
 				BFBE061C2BA318260034F32F /* NSCacheStorage.swift in Sources */,
 				BF2180662B9732DC00005292 /* NetworkError.swift in Sources */,
 				BFBE06182BA315B60034F32F /* CacheStorageProtocol.swift in Sources */,
+				BF13603F2BA9A7A10030A82D /* User.swift in Sources */,
 				BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */,
 				BF2180592B9732A900005292 /* ProductDTO.swift in Sources */,
 				BF2180652B9732DC00005292 /* NetworkManager.swift in Sources */,

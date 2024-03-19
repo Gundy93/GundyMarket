@@ -9,7 +9,7 @@ import Foundation
 
 struct Product: Hashable {
     let id: Int?
-    let vendorName: String?
+    let vendor: User
     let name: String
     let description: String
     let thumbnailURL: String

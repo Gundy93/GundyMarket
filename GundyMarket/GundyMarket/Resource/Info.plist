@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UserID</key>
+	<integer>43</integer>
+	<key>UserName</key>
+	<string>gundy93</string>
+	<key>UserPassword</key>
+	<string>sth4w4p3knfsxqgx</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

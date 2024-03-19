@@ -39,22 +39,15 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 session: .shared
             )
         )
-        
-        let networkManager = NetworkManager(
-            session: NetworkSession(
-                session: .shared
-            )
-        )
-        
+        let networkManager = NetworkManager(session: NetworkSession(session: .shared))
         let viewModel = GundyMarketViewModel(
             numberFormatter: numberFormatter,
             dateFormatter: dateFormatter,
             imageCacheManager: imageCacheManager,
             networkManager: networkManager
         )
+        let viewController = ProductListViewController(viewModel: viewModel)
         
-        window?.rootViewController = ProductListViewController(
-            viewModel: viewModel
-        )
+        window?.rootViewController = UINavigationController(rootViewController: viewController)
     }
 }
