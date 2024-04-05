@@ -21,7 +21,6 @@ final class ProductListCell: UICollectionViewListCell {
         
         return stackView
     }()
-    
     private let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         
@@ -33,7 +32,6 @@ final class ProductListCell: UICollectionViewListCell {
         
         return imageView
     }()
-    
     private let labelStackView: UIStackView = {
         let stackView = UIStackView()
         
@@ -44,7 +42,6 @@ final class ProductListCell: UICollectionViewListCell {
         
         return stackView
     }()
-    
     private let nameLabel: UILabel = {
         let label = UILabel()
         
@@ -53,7 +50,6 @@ final class ProductListCell: UICollectionViewListCell {
         
         return label
     }()
-    
     private let dateLabel: UILabel = {
         let label = UILabel()
         
@@ -63,7 +59,6 @@ final class ProductListCell: UICollectionViewListCell {
         
         return label
     }()
-    
     private let priceLabel: UILabel = {
         let label = UILabel()
         

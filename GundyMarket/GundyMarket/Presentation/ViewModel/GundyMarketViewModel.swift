@@ -7,11 +7,23 @@
 
 import Foundation
 
+@MainActor
 final class GundyMarketViewModel {
     
     //MARK: - Public property
     
-    weak var delegate: ProductListViewModelDelegate?
+    weak var listDelegate: ProductListViewModelDelegate?
+    weak var detailDelegate: ProductDetailViewModelDelegate?
+    private(set) var product: Product? {
+        didSet {
+            detailDelegate?.setProduct()
+        }
+    }
+    private(set) var imageDatas = [Data]() {
+        didSet {
+            detailDelegate?.setImageDatas()
+        }
+    }
     
     //MARK: - Private property
     
@@ -61,9 +73,9 @@ final class GundyMarketViewModel {
                 )
             }
             
-            isNewList ? self.delegate?.setList(with: products) : self.delegate?.appendNewItems(products)
-        case .failure(_):
-            break
+            isNewList ? self.listDelegate?.setList(with: products) : self.listDelegate?.appendNewItems(products)
+        case .failure(let error):
+            print(error)
         }
     }
     
@@ -75,5 +87,34 @@ final class GundyMarketViewModel {
         let timeInterval = Date.now.timeIntervalSince(date)
         
         return Time(timeInterval: timeInterval).string() + " 전"
+    }
+    
+    func setProduct(_ id: Int) async {
+        let builder = ProductBuilder(id: id)
+        let result = await networkManager.request(builder)
+        
+        switch result {
+        case .success(let response):
+            product = response.toDomain(
+                numberFormatter: numberFormatter,
+                dateFormatter: dateFormatter
+            )
+            imageDatas = Array(
+                repeating: Data(),
+                count: response.images?.count ?? 1
+            )
+            response.images?.enumerated().forEach { (index, image) in
+                Task {
+                    imageDatas[index] = await self.imageCacheManager.get(for: image.url) ?? Data()
+                }
+            }
+        case .failure(let error):
+            print(error)
+        }
+    }
+    
+    func reset() {
+        product = nil
+        imageDatas = []
     }
 }

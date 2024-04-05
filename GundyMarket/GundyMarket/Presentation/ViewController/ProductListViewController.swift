@@ -16,7 +16,10 @@ final class ProductListViewController: UIViewController {
     private let productCollectionView: UICollectionView = {
         let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout
+        )
         
         collectionView.register(
             ProductListCell.self,
@@ -37,7 +40,8 @@ final class ProductListViewController: UIViewController {
             nibName: nil,
             bundle: nil
         )
-        viewModel.delegate = self
+        viewModel.listDelegate = self
+        title = ""
     }
     
     @available(*, unavailable)
@@ -52,6 +56,12 @@ final class ProductListViewController: UIViewController {
         configureLayout()
         configureCollectionView()
         configureRefreshControl()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.reset()
     }
     
     // MARK: - Private
@@ -84,7 +94,7 @@ final class ProductListViewController: UIViewController {
             cell.setId(product.id)
             cell.setTexts(
                 name: product.name,
-                date: self.viewModel.string(for: product.issuedAt),
+                date: (product.isEdited ? "수정 " : "") + self.viewModel.string(for: product.issuedAt),
                 price: product.priceText + (product.currency == .krw ? "원" : "달러")
             )
             cell.setThumbnail(image: nil, for: product.id)
@@ -162,6 +172,31 @@ extension ProductListViewController: UICollectionViewDelegate {
             await viewModel.loadMoreList()
         }
     }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        guard let productId = dataSource?.itemIdentifier(for: indexPath)?.id,
+              let vendorID = dataSource?.itemIdentifier(for: indexPath)?.vendor.id else { return }
+        
+        Task {
+            await viewModel.setProduct(productId)
+        }
+        
+        navigationController?.pushViewController(
+            DetailViewController(
+                vendorID: vendorID,
+                viewModel: viewModel
+            ),
+            animated: true
+        )
+        
+        collectionView.deselectItem(
+            at: indexPath,
+            animated: true
+        )
+    }
 }
 
 #Preview {
@@ -201,5 +236,5 @@ extension ProductListViewController: UICollectionViewDelegate {
         networkManager: networkManager
     )
     
-    return ProductListViewController(viewModel: viewModel)
+    return UINavigationController(rootViewController: ProductListViewController(viewModel: viewModel)) 
 }
