@@ -220,11 +220,6 @@ extension ProductListViewController: UICollectionViewDelegate {
                 nsCache: .init()
             )
         ),
-        diskCache: Cache(
-            storage: UserDefaultsCacheStorage(
-                userDefaults: .standard
-            )
-        ),
         session: NetworkSession(
             session: .shared
         )

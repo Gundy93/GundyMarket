@@ -11,15 +11,15 @@ final class ImageDataCacheManager {
     
     // MARK: - Private property
     
-    private let memoryCache: CacheProtocol
-    private let diskCache: CacheProtocol
+    private let memoryCache: CacheProtocol?
+    private let diskCache: CacheProtocol?
     private let session: NetworkSessionProtocol
     
     // MARK: - Lifecycle
     
     init(
-        memoryCache: CacheProtocol,
-        diskCache: CacheProtocol,
+        memoryCache: CacheProtocol? = nil,
+        diskCache: CacheProtocol? = nil,
         session: NetworkSessionProtocol
     ) {
         self.memoryCache = memoryCache
@@ -30,10 +30,12 @@ final class ImageDataCacheManager {
     // MARK: - Public
     
     func get(for key: String) async -> Data? {
-        if let data = memoryCache.get(for: key) {
+        if let memoryCache,
+           let data = memoryCache.get(for: key) {
             return data
-        } else if let data = diskCache.get(for: key) {
-            memoryCache.store(data, for: key)
+        } else if let diskCache,
+                  let data = diskCache.get(for: key) {
+            memoryCache?.store(data, for: key)
             
             return data
         }
@@ -42,8 +44,8 @@ final class ImageDataCacheManager {
         
         switch await session.dataTask(with: URLRequest(url: url)) {
         case .success(let data):
-            memoryCache.store(data, for: key)
-            diskCache.store(data, for: key)
+            memoryCache?.store(data, for: key)
+            diskCache?.store(data, for: key)
             
             return data
         case .failure(_):
