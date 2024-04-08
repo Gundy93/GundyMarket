@@ -62,6 +62,13 @@ final class ProductListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         viewModel.reset()
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Private

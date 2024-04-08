@@ -18,9 +18,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         let numberFormatter = NumberFormatter()
+        
         numberFormatter.numberStyle = .decimal
         
         let dateFormatter = DateFormatter()
+        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         
@@ -48,6 +50,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
         let viewController = ProductListViewController(viewModel: viewModel)
         
-        window?.rootViewController = UINavigationController(rootViewController: viewController)
+//        window?.rootViewController = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = UINavigationController(rootViewController: ProductManagementViewController(isNewProduct: false))
     }
 }

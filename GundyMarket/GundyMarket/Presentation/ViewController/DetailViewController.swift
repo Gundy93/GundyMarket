@@ -183,7 +183,7 @@ final class DetailViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
+        title = "제목"
         view.backgroundColor = .systemBackground
         headerHeight = view.frame.height*0.45
     }

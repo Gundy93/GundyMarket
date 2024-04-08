@@ -38,6 +38,8 @@
 		BF21806E2B97330200005292 /* NetworkDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806A2B97330200005292 /* NetworkDeserializable.swift */; };
 		BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */; };
 		BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */; };
+		BF5A29372BC112C60007E996 /* ProductManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A29362BC112C60007E996 /* ProductManagementViewController.swift */; };
+		BF5A29392BC12B740007E996 /* TitleTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A29382BC12B740007E996 /* TitleTextBlock.swift */; };
 		BFBE05ED2B99DB680034F32F /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE05EC2B99DB680034F32F /* ProductListCell.swift */; };
 		BFBE06102BA074EE0034F32F /* GundyMarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE060F2BA074EE0034F32F /* GundyMarketViewModel.swift */; };
 		BFBE06122BA075070034F32F /* ProductListViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE06112BA075070034F32F /* ProductListViewModelDelegate.swift */; };
@@ -100,6 +102,8 @@
 		BF21806A2B97330200005292 /* NetworkDeserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkDeserializable.swift; path = Data/Core/Network/Interface/NetworkDeserializable.swift; sourceTree = "<group>"; };
 		BF21806B2B97330200005292 /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSessionProtocol.swift; path = Data/Core/Network/Interface/NetworkSessionProtocol.swift; sourceTree = "<group>"; };
 		BF21806C2B97330200005292 /* NetworkBuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkBuilderProtocol.swift; path = Data/Core/Network/Interface/NetworkBuilderProtocol.swift; sourceTree = "<group>"; };
+		BF5A29362BC112C60007E996 /* ProductManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManagementViewController.swift; sourceTree = "<group>"; };
+		BF5A29382BC12B740007E996 /* TitleTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextBlock.swift; sourceTree = "<group>"; };
 		BFBE05EC2B99DB680034F32F /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		BFBE060F2BA074EE0034F32F /* GundyMarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GundyMarketViewModel.swift; sourceTree = "<group>"; };
 		BFBE06112BA075070034F32F /* ProductListViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModelDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			children = (
 				BF217FBF2B90445700005292 /* ProductListViewController.swift */,
 				BF1360402BA9B0200030A82D /* DetailViewController.swift */,
+				BF5A29362BC112C60007E996 /* ProductManagementViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			children = (
 				BFBE05EC2B99DB680034F32F /* ProductListCell.swift */,
 				BFC4CDB12BBC0FD200EC146D /* CarouselImageCell.swift */,
+				BF5A29382BC12B740007E996 /* TitleTextBlock.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 			files = (
 				BF21805F2B9732C000005292 /* ProductBuilder.swift in Sources */,
 				BFBE061C2BA318260034F32F /* NSCacheStorage.swift in Sources */,
+				BF5A29392BC12B740007E996 /* TitleTextBlock.swift in Sources */,
 				BF2180662B9732DC00005292 /* NetworkError.swift in Sources */,
 				BFDF1D872BB403B6009BF88F /* ProductDetailViewModelDelegate.swift in Sources */,
 				BFBE06182BA315B60034F32F /* CacheStorageProtocol.swift in Sources */,
@@ -479,6 +486,7 @@
 				BF1360412BA9B0200030A82D /* DetailViewController.swift in Sources */,
 				BF2180652B9732DC00005292 /* NetworkManager.swift in Sources */,
 				BF2180572B9732A900005292 /* ProductDTOList.swift in Sources */,
+				BF5A29372BC112C60007E996 /* ProductManagementViewController.swift in Sources */,
 				BF2180522B97329C00005292 /* Currency.swift in Sources */,
 				BF2180432B95DBCC00005292 /* Product.swift in Sources */,
 				BFBE05ED2B99DB680034F32F /* ProductListCell.swift in Sources */,
