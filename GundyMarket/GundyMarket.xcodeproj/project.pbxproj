@@ -61,6 +61,10 @@
 		BFEE9B6C2BD1374400984283 /* MultipartFormDataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B6B2BD1374400984283 /* MultipartFormDataSerializer.swift */; };
 		BFEE9B6E2BD13F9C00984283 /* ProductDTOForUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B6D2BD13F9C00984283 /* ProductDTOForUpload.swift */; };
 		BFEE9B732BD6756400984283 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B722BD6756400984283 /* UIImage.swift */; };
+		BFEE9B752BD67BFD00984283 /* ProductDeleteURIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B742BD67BFD00984283 /* ProductDeleteURIBuilder.swift */; };
+		BFEE9B772BD67D0400984283 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B762BD67D0400984283 /* Secret.swift */; };
+		BFEE9B792BD67DA800984283 /* SecretNetwrokSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B782BD67DA800984283 /* SecretNetwrokSerializer.swift */; };
+		BFEE9B7B2BD67EA900984283 /* SerializerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B7A2BD67EA900984283 /* SerializerError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +135,10 @@
 		BFEE9B6B2BD1374400984283 /* MultipartFormDataSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataSerializer.swift; sourceTree = "<group>"; };
 		BFEE9B6D2BD13F9C00984283 /* ProductDTOForUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDTOForUpload.swift; sourceTree = "<group>"; };
 		BFEE9B722BD6756400984283 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		BFEE9B742BD67BFD00984283 /* ProductDeleteURIBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDeleteURIBuilder.swift; sourceTree = "<group>"; };
+		BFEE9B762BD67D0400984283 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		BFEE9B782BD67DA800984283 /* SecretNetwrokSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretNetwrokSerializer.swift; sourceTree = "<group>"; };
+		BFEE9B7A2BD67EA900984283 /* SerializerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializerError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +237,7 @@
 				BF2180552B9732A900005292 /* ProductDTO.swift */,
 				BF2180532B9732A900005292 /* ProductDTOList.swift */,
 				BFEE9B6D2BD13F9C00984283 /* ProductDTOForUpload.swift */,
+				BFEE9B762BD67D0400984283 /* Secret.swift */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 				BF21805B2B9732C000005292 /* ProductListBuilder.swift */,
 				BF21805C2B9732C000005292 /* ProductBuilder.swift */,
 				BFEE9B692BD136E000984283 /* ProductAddBuilder.swift */,
+				BFEE9B742BD67BFD00984283 /* ProductDeleteURIBuilder.swift */,
 			);
 			name = OpenMarketBuilder;
 			sourceTree = "<group>";
@@ -333,6 +343,8 @@
 				BF217FD32B9049D900005292 /* DTO */,
 				BF2180362B95D66F00005292 /* OpenMarketBuilder */,
 				BFEE9B6B2BD1374400984283 /* MultipartFormDataSerializer.swift */,
+				BFEE9B782BD67DA800984283 /* SecretNetwrokSerializer.swift */,
+				BFEE9B7A2BD67EA900984283 /* SerializerError.swift */,
 			);
 			name = Feature;
 			sourceTree = "<group>";
@@ -506,6 +518,7 @@
 				BF2180662B9732DC00005292 /* NetworkError.swift in Sources */,
 				BFDF1D872BB403B6009BF88F /* ProductDetailViewModelDelegate.swift in Sources */,
 				BFBE06182BA315B60034F32F /* CacheStorageProtocol.swift in Sources */,
+				BFEE9B792BD67DA800984283 /* SecretNetwrokSerializer.swift in Sources */,
 				BF13603F2BA9A7A10030A82D /* User.swift in Sources */,
 				BF2180702B97330200005292 /* NetworkBuilderProtocol.swift in Sources */,
 				BF2180592B9732A900005292 /* ProductDTO.swift in Sources */,
@@ -523,6 +536,7 @@
 				BF217FBC2B90445700005292 /* AppDelegate.swift in Sources */,
 				BF2180582B9732A900005292 /* Vendor.swift in Sources */,
 				BFBE06122BA075070034F32F /* ProductListViewModelDelegate.swift in Sources */,
+				BFEE9B752BD67BFD00984283 /* ProductDeleteURIBuilder.swift in Sources */,
 				BFC4CDB22BBC0FD200EC146D /* CarouselImageCell.swift in Sources */,
 				BFBE06202BA3199A0034F32F /* ImageDataCacheManager.swift in Sources */,
 				BFEE9B6A2BD136E000984283 /* ProductAddBuilder.swift in Sources */,
@@ -534,8 +548,10 @@
 				BFEE9B682BC7FA6900984283 /* ProductImageCellDelegate.swift in Sources */,
 				BF21806D2B97330200005292 /* NetworkSerializable.swift in Sources */,
 				BF21806E2B97330200005292 /* NetworkDeserializable.swift in Sources */,
+				BFEE9B7B2BD67EA900984283 /* SerializerError.swift in Sources */,
 				BF21805A2B9732A900005292 /* ProductImage.swift in Sources */,
 				BF2180672B9732DC00005292 /* NetworkSession.swift in Sources */,
+				BFEE9B772BD67D0400984283 /* Secret.swift in Sources */,
 				BFEE9B6E2BD13F9C00984283 /* ProductDTOForUpload.swift in Sources */,
 				BF2180602B9732C000005292 /* HealthCheckerBuilder.swift in Sources */,
 				BF2180682B9732DC00005292 /* JSONNetworkDeserializer.swift in Sources */,
