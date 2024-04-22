@@ -65,6 +65,7 @@
 		BFEE9B772BD67D0400984283 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B762BD67D0400984283 /* Secret.swift */; };
 		BFEE9B792BD67DA800984283 /* SecretNetwrokSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B782BD67DA800984283 /* SecretNetwrokSerializer.swift */; };
 		BFEE9B7B2BD67EA900984283 /* SerializerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B7A2BD67EA900984283 /* SerializerError.swift */; };
+		BFEE9B7D2BD6822C00984283 /* ProductDeleteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B7C2BD6822C00984283 /* ProductDeleteBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		BFEE9B762BD67D0400984283 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		BFEE9B782BD67DA800984283 /* SecretNetwrokSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretNetwrokSerializer.swift; sourceTree = "<group>"; };
 		BFEE9B7A2BD67EA900984283 /* SerializerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializerError.swift; sourceTree = "<group>"; };
+		BFEE9B7C2BD6822C00984283 /* ProductDeleteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDeleteBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +306,7 @@
 				BF21805C2B9732C000005292 /* ProductBuilder.swift */,
 				BFEE9B692BD136E000984283 /* ProductAddBuilder.swift */,
 				BFEE9B742BD67BFD00984283 /* ProductDeleteURIBuilder.swift */,
+				BFEE9B7C2BD6822C00984283 /* ProductDeleteBuilder.swift */,
 			);
 			name = OpenMarketBuilder;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				BF21805F2B9732C000005292 /* ProductBuilder.swift in Sources */,
 				BFBE061C2BA318260034F32F /* NSCacheStorage.swift in Sources */,
 				BF5A29392BC12B740007E996 /* TitleTextBlock.swift in Sources */,
+				BFEE9B7D2BD6822C00984283 /* ProductDeleteBuilder.swift in Sources */,
 				BF2180662B9732DC00005292 /* NetworkError.swift in Sources */,
 				BFDF1D872BB403B6009BF88F /* ProductDetailViewModelDelegate.swift in Sources */,
 				BFBE06182BA315B60034F32F /* CacheStorageProtocol.swift in Sources */,
