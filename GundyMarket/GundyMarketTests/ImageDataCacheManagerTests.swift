@@ -31,7 +31,7 @@ final class ImageDataCacheManagerTests: XCTestCase {
         // given
         var storage = [String : Data]()
         let key = "circle"
-        let originData = UIImage(systemName: "circle")?.pngData()
+        let originData = UIImage(systemName: "circle")?.jpegData(compressionQuality: 0.9)
         
         storage[key] = originData
         
@@ -59,7 +59,7 @@ final class ImageDataCacheManagerTests: XCTestCase {
         // given
         var storage = [String : Data]()
         let key = "square"
-        let originData = UIImage(systemName: "square")?.pngData()
+        let originData = UIImage(systemName: "square")?.jpegData(compressionQuality: 0.9)
         
         storage[key] = originData
         

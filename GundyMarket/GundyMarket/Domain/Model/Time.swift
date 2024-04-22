@@ -42,12 +42,8 @@ struct Time {
             return String(month) + "달"
         } else if day > 0 {
             return String(day) + "일"
-        } else if hour > 0 {
-            return String(hour) + "시간"
-        } else if minute > 0 {
-            return String(minute) + "분"
         } else {
-            return String(second) + "초"
+            return "방금"
         }
     }
     

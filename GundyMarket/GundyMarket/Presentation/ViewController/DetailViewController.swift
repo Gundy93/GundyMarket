@@ -138,7 +138,7 @@ final class DetailViewController: UIViewController {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderColor = UIColor.systemGray4.cgColor
+        view.layer.borderColor = UIColor.systemGray2.cgColor
         view.layer.borderWidth = 0.5
         
         return view
@@ -183,7 +183,6 @@ final class DetailViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        title = "제목"
         view.backgroundColor = .systemBackground
         headerHeight = view.frame.height*0.45
     }
@@ -326,6 +325,7 @@ final class DetailViewController: UIViewController {
     
     private func setLabelTexts() {
         guard let product = viewModel.product else { return }
+        
         vendorNameLabel.text = product.vendor.name
         nameLabel.text = product.name
         dateLabel.text = (product.isEdited ? "수정 " : "") + viewModel.string(for: product.issuedAt)
@@ -360,11 +360,6 @@ final class DetailViewController: UIViewController {
             message: nil,
             preferredStyle: .actionSheet
         )
-        let edit = UIAlertAction(
-            title: "게시글 수정",
-            style: .default) { _ in
-                // 수정 화면 present
-            }
         let delete = UIAlertAction(
             title: "삭제",
             style: .destructive) { _ in
@@ -375,7 +370,7 @@ final class DetailViewController: UIViewController {
             style: .cancel
         )
         
-        [edit, delete, cancel].forEach { alertController.addAction($0) }
+        [delete, cancel].forEach { alertController.addAction($0) }
         present(
             alertController,
             animated: true

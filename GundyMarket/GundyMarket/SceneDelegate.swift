@@ -24,7 +24,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
         
         let imageCacheManager = ImageDataCacheManager(
             memoryCache: Cache(
@@ -45,7 +45,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
         let viewController = ProductListViewController(viewModel: viewModel)
         
-//        window?.rootViewController = UINavigationController(rootViewController: viewController)
-        window?.rootViewController = UINavigationController(rootViewController: ProductManagementViewController(isNewProduct: false))
+        window?.rootViewController = UINavigationController(rootViewController: viewController)
     }
 }

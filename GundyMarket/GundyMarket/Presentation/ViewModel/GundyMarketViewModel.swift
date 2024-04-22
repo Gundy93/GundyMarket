@@ -117,4 +117,48 @@ final class GundyMarketViewModel {
         product = nil
         imageDatas = []
     }
+    
+    func addProduct(
+        name: String,
+        description: String,
+        price: String,
+        images: [Data]
+    ) async -> Error? {
+        guard let price = numberFormatter.number(from: price) as? Int else { return ProductAddError.invalidPrice }
+        
+        let product = ProductDTOForUpload(
+            name: name,
+            description: description,
+            price: price,
+            secret: Bundle.main.object(forInfoDictionaryKey: "UserPassword") as! String
+        )
+        
+        guard let productData = try? JSONEncoder().encode(product) else { return ProductAddError.canNotEncode }
+        
+        let builder = ProductAddBuilder(
+            boundary: "----boundary",
+            product: productData,
+            images: images.reduce(Data()) {
+                var data = $0
+                
+                data.append($1)
+                
+                return data
+            }
+        )
+        
+        let result = await networkManager.request(builder)
+        
+        switch result {
+        case .success(_):
+            return nil
+        case .failure(let error):
+            return error
+        }
+    }
+    
+    enum ProductAddError: Error {
+        case invalidPrice
+        case canNotEncode
+    }
 }

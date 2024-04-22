@@ -13,6 +13,39 @@ final class ProductListViewController: UIViewController {
     // MARK: - Private property
     
     private let viewModel: GundyMarketViewModel
+    private let productAddButton: UIButton = {
+        let configuration = UIButton.Configuration.filled()
+        let button = UIButton(configuration: configuration)
+        
+        button.setImage(
+            UIImage(systemName: "plus"),
+            for: .normal
+        )
+        button.setTitle(
+            "글쓰기",
+            for: .normal
+        )
+        button.configurationUpdateHandler = { button in
+            switch button.state {
+            case .normal:
+                button.configuration?.background.backgroundColor = .systemOrange
+            case .highlighted:
+                button.configuration?.background.backgroundColor = UIColor(
+                    red: 1,
+                    green: 0.75,
+                    blue: 0.5,
+                    alpha: 1
+                )
+            default:
+                return
+            }
+        }
+        button.clipsToBounds = true
+        button.layer.cornerRadius = button.intrinsicContentSize.height/2+5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
     private let productCollectionView: UICollectionView = {
         let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
@@ -56,6 +89,7 @@ final class ProductListViewController: UIViewController {
         configureLayout()
         configureCollectionView()
         configureRefreshControl()
+        configureProductAddButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +97,7 @@ final class ProductListViewController: UIViewController {
         
         viewModel.reset()
         navigationController?.navigationBar.isHidden = true
+        handleRefreshControl()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,7 +109,7 @@ final class ProductListViewController: UIViewController {
     // MARK: - Private
     
     private func configureHierarchy() {
-        view.addSubview(productCollectionView)
+        [productCollectionView, productAddButton].forEach { view.addSubview($0) }
     }
     
     private func configureLayout() {
@@ -86,6 +121,11 @@ final class ProductListViewController: UIViewController {
                 productCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
                 productCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
                 productCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+                
+                productAddButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16),
+                productAddButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+                productAddButton.widthAnchor.constraint(equalToConstant: productAddButton.intrinsicContentSize.width),
+                productAddButton.heightAnchor.constraint(equalToConstant: productAddButton.intrinsicContentSize.height+10),
             ]
         )
     }
@@ -143,6 +183,25 @@ final class ProductListViewController: UIViewController {
             self.productCollectionView.refreshControl?.endRefreshing()
             isLoading = false
         }
+    }
+    
+    private func configureProductAddButton() {
+        productAddButton.addTarget(
+            self,
+            action: #selector(presentProductAddViewController),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc
+    func presentProductAddViewController() {
+        let viewController = ProductAddViewController(viewModel: viewModel)
+        
+        viewController.modalPresentationStyle = .fullScreen
+        present(
+            viewController,
+            animated: true
+        )
     }
 }
 

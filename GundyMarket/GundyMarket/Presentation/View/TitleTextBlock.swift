@@ -9,6 +9,10 @@ import UIKit
 
 final class TitleTextBlock: UIView {
     
+    // MARK: - Public property
+    
+    var text: String { textView.text }
+    
     // MARK: - Private property
     
     private let title: String
@@ -40,7 +44,7 @@ final class TitleTextBlock: UIView {
         let view = UIView()
         
         view.layer.cornerRadius = 5
-        view.layer.borderColor = UIColor.systemGray4.cgColor
+        view.layer.borderColor = UIColor.systemGray2.cgColor
         view.layer.borderWidth = 0.5
         
         return view
@@ -55,11 +59,21 @@ final class TitleTextBlock: UIView {
     private let placeholderLabel: UILabel = {
         let label = UILabel()
         
-        label.textColor = .systemGray4
+        label.textColor = .systemGray2
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
+    private let cautionLabel: UILabel = {
+        let label = UILabel()
+        
+        label.textColor = .systemRed
+        label.font = .preferredFont(forTextStyle: .caption1)
+        label.isHidden = true
+        
+        return label
+    }()
+    private var isCaution: Bool = false
     
     // MARK: - Lifecyle
     
@@ -67,12 +81,14 @@ final class TitleTextBlock: UIView {
         title: String,
         placeholder: String?,
         isDecimalField: Bool = false,
-        isMultiline: Bool
+        isMultiline: Bool,
+        caution text: String
     ) {
         self.title = title
         self.placeholder = placeholder
         self.isDecimalField = isDecimalField
         self.isMultiline = isMultiline
+        cautionLabel.text = text
         
         if isDecimalField {
             numberFormatter = NumberFormatter()
@@ -95,11 +111,28 @@ final class TitleTextBlock: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public
+    
+    func setText(_ text: String) {
+        textView.text = text
+        textViewDidChange(textView)
+    }
+    
+    func validate() -> Bool {
+        guard textView.text.isEmpty == false else {
+            setIsCaution(true)
+            
+            return false
+        }
+        
+        return true
+    }
+    
     // MARK: - Private
     
     private func configureHierarchy() {
         addSubview(contentStackView)
-        [titleLabel, outlineView].forEach { contentStackView.addArrangedSubview($0) }
+        [titleLabel, outlineView, cautionLabel].forEach { contentStackView.addArrangedSubview($0) }
         [textView, placeholderLabel].forEach { outlineView.addSubview($0) }
     }
     
@@ -140,18 +173,38 @@ final class TitleTextBlock: UIView {
     private func configurePlaceholderLabel() {
         placeholderLabel.text = placeholder
     }
+    
+    private func setIsCaution(_ isCaution: Bool) {
+        guard self.isCaution != isCaution else { return }
+        
+        if isCaution {
+            outlineView.layer.borderWidth = 1
+            outlineView.layer.borderColor = UIColor.systemRed.cgColor
+            outlineView.backgroundColor = UIColor(red: 1, green: 0.9, blue: 0.8, alpha: 1)
+            textView.backgroundColor = UIColor(red: 1, green: 0.9, blue: 0.8, alpha: 1)
+            cautionLabel.isHidden = false
+        } else {
+            outlineView.layer.borderWidth = 0.5
+            outlineView.layer.borderColor = UIColor.systemGray2.cgColor
+            outlineView.backgroundColor = nil
+            textView.backgroundColor = nil
+            cautionLabel.isHidden = true
+        }
+        
+        self.isCaution = isCaution
+    }
 }
 
 extension TitleTextBlock: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        guard textView === self.textView else { return false }
+        setIsCaution(false)
         outlineView.layer.borderColor = UIColor.label.cgColor
         
         return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        outlineView.layer.borderColor = UIColor.systemGray4.cgColor
+        outlineView.layer.borderColor = UIColor.systemGray2.cgColor
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -185,10 +238,15 @@ extension TitleTextBlock: UITextViewDelegate {
 }
 
 #Preview {
-    TitleTextBlock(
+    let view = TitleTextBlock(
         title: "가격",
         placeholder: "가격을 입력해주세요.",
         isDecimalField: true,
-        isMultiline: false
+        isMultiline: false,
+        caution: "가격을 입력해주세요."
     )
+    
+    _ = view.validate()
+    
+    return view
 }
