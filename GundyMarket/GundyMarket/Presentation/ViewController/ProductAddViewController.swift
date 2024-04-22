@@ -203,6 +203,8 @@ final class ProductAddViewController: UIViewController {
             doneButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -8),
             doneButton.heightAnchor.constraint(equalToConstant: 48),
         ])
+        
+        activityIndicatorView.center = view.center
     }
     
     private func configureNavigationBar() {
@@ -261,7 +263,6 @@ final class ProductAddViewController: UIViewController {
             action: #selector(done),
             for: .touchUpInside
         )
-        activityIndicatorView.center = view.center
     }
     
     @objc
@@ -271,16 +272,17 @@ final class ProductAddViewController: UIViewController {
         Task {
             activityIndicatorView.startAnimating()
             
-            if let error = await viewModel.addProduct(
-                name: titleTextFiled.text,
-                description: descriptionTextView.text,
-                price: priceTextFiled.text,
-                images: images.compactMap { compress(image: $0) }
-            ) {
+            do {
+                try await viewModel.addProduct(
+                    name: titleTextFiled.text,
+                    description: descriptionTextView.text,
+                    price: priceTextFiled.text,
+                    images: images.compactMap { compress(image: $0) }
+                )
+                dismissViewController()
+            } catch {
                 activityIndicatorView.stopAnimating()
                 presentErrorAlert(error)
-            } else {
-                dismissViewController()
             }
         }
     }

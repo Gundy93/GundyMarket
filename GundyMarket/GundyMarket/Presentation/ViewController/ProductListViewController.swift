@@ -180,7 +180,7 @@ final class ProductListViewController: UIViewController {
         Task {
             await viewModel.loadNewList()
             try? await Task.sleep(nanoseconds: 500000000)
-            self.productCollectionView.refreshControl?.endRefreshing()
+            productCollectionView.refreshControl?.endRefreshing()
             isLoading = false
         }
     }

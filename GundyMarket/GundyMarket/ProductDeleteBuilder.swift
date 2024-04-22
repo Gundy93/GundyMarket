@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProductDeleteBuilder: NetworkBuilderProtocol {
-    typealias Response = String
+    typealias Response = ProductDTO
     
     // MARK: - Public property
     

@@ -123,8 +123,8 @@ final class GundyMarketViewModel {
         description: String,
         price: String,
         images: [Data]
-    ) async -> Error? {
-        guard let price = numberFormatter.number(from: price) as? Int else { return ProductAddError.invalidPrice }
+    ) async throws {
+        guard let price = numberFormatter.number(from: price) as? Int else { throw ProductAddError.invalidPrice }
         
         let product = ProductDTOForUpload(
             name: name,
@@ -133,7 +133,7 @@ final class GundyMarketViewModel {
             secret: Bundle.main.object(forInfoDictionaryKey: "UserPassword") as! String
         )
         
-        guard let productData = try? JSONEncoder().encode(product) else { return ProductAddError.canNotEncode }
+        guard let productData = try? JSONEncoder().encode(product) else { throw ProductAddError.canNotEncode }
         
         let builder = ProductAddBuilder(
             boundary: "----boundary",
@@ -151,14 +151,49 @@ final class GundyMarketViewModel {
         
         switch result {
         case .success(_):
-            return nil
+            return
         case .failure(let error):
-            return error
+            throw error
         }
     }
+    
+    func deleteProduct() async throws {
+        let uri = try await searchDeleteURI()
+        let builder = ProductDeleteBuilder(uri: uri)
+        let result = await networkManager.request(builder)
+        
+        switch result {
+        case .success(_):
+            return
+        case .failure(let error):
+            throw error
+        }
+    }
+    
+    // MARK: - Private
+    
+    private func searchDeleteURI() async throws -> String {
+        guard let id = product?.id else { throw ProductDeleteError.invaildProduct }
+        
+        let builder = ProductDeleteURIBuilder(id: id)
+        let result = await networkManager.request(builder)
+        
+        switch result {
+        case .success(let uri):
+            return uri
+        case .failure(let error):
+            throw error
+        }
+    }
+    
+    // MARK: - Nested type
     
     enum ProductAddError: Error {
         case invalidPrice
         case canNotEncode
+    }
+    
+    enum ProductDeleteError: Error {
+        case invaildProduct
     }
 }

@@ -158,6 +158,7 @@ final class DetailViewController: UIViewController {
         
         return label
     }()
+    private let activityIndicatorView = UIActivityIndicatorView(style: .large)
     
     // MARK: - Lifecycle
     
@@ -207,7 +208,7 @@ final class DetailViewController: UIViewController {
     // MARK: - Private
     
     private func configureHierarchy() {
-        [scrollView, stickyHeaderCarouselCollectionView, pageControl, footerView].forEach {
+        [scrollView, stickyHeaderCarouselCollectionView, pageControl, footerView, activityIndicatorView].forEach {
             view.addSubview($0)
         }
         scrollView.addSubview(contentStackView)
@@ -264,6 +265,7 @@ final class DetailViewController: UIViewController {
         
         headerHeightConstraint = stickyHeaderCarouselCollectionView.heightAnchor.constraint(equalToConstant: headerHeight)
         headerHeightConstraint?.isActive = true
+        activityIndicatorView.center = view.center
     }
     
     private func configureNavigationBar() {
@@ -348,8 +350,8 @@ final class DetailViewController: UIViewController {
     private func addVendorButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "ellipsis"),
-            primaryAction: UIAction { _ in 
-                self.showVendorActionSheet()
+            primaryAction: UIAction { [weak self] _ in 
+                self?.showVendorActionSheet()
             }
         )
     }
@@ -362,8 +364,8 @@ final class DetailViewController: UIViewController {
         )
         let delete = UIAlertAction(
             title: "삭제",
-            style: .destructive) { _ in
-                // 삭제 로직
+            style: .destructive) { [weak self] _ in
+                self?.presentDeleteAlert()
             }
         let cancel = UIAlertAction(
             title: "취소",
@@ -371,6 +373,57 @@ final class DetailViewController: UIViewController {
         )
         
         [delete, cancel].forEach { alertController.addAction($0) }
+        present(
+            alertController,
+            animated: true
+        )
+    }
+    
+    private func presentDeleteAlert() {
+        let alertController = UIAlertController(
+            title: nil,
+            message: "게시글을 삭제할까요?",
+            preferredStyle: .alert
+        )
+        let cancel = UIAlertAction(
+            title: "취소",
+            style: .cancel
+        )
+        let delete = UIAlertAction(
+            title: "삭제",
+            style: .destructive) { [weak self] _ in
+                Task {
+                    self?.activityIndicatorView.startAnimating()
+                    
+                    do {
+                        try await self?.viewModel.deleteProduct()
+                        self?.navigationController?.popViewController(animated: true)
+                    } catch {
+                        self?.activityIndicatorView.stopAnimating()
+                        self?.presentErrorAlert(error)
+                    }
+                }
+            }
+        
+        [delete, cancel].forEach { alertController.addAction($0) }
+        present(
+            alertController,
+            animated: true
+        )
+    }
+    
+    private func presentErrorAlert(_ error: Error) {
+        let alertController = UIAlertController(
+            title: error.localizedDescription,
+            message: "잠시 후 다시 시도해 주세요.",
+            preferredStyle: .alert
+        )
+        let close = UIAlertAction(
+            title: "닫기",
+            style: .default
+        )
+        
+        alertController.addAction(close)
         present(
             alertController,
             animated: true
