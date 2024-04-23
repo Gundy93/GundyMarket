@@ -27,8 +27,9 @@ final class ProductListCell: UICollectionViewListCell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.systemGray2.cgColor
+        imageView.layer.borderColor = UIColor.systemGray6.cgColor
         imageView.backgroundColor = .systemGray6
+        imageView.clipsToBounds = true
         
         return imageView
     }()

@@ -89,10 +89,10 @@ final class DetailViewController: UIViewController {
         let imageView = UIImageView(image: UIImage(systemName: "person.fill"))
         
         imageView.tintColor = .init(white: 0.975, alpha: 1)
-        imageView.backgroundColor = .systemGray5
+        imageView.backgroundColor = .systemGray6
         imageView.layer.cornerRadius = 25
         imageView.layer.borderWidth = 0.5
-        imageView.layer.borderColor = UIColor.systemGray2.cgColor
+        imageView.layer.borderColor = UIColor.systemGray4.cgColor
         imageView.clipsToBounds = true
         
         return imageView
@@ -107,7 +107,7 @@ final class DetailViewController: UIViewController {
     private let divider: UIView = {
         let view = UIView()
         
-        view.backgroundColor = .systemGray4
+        view.backgroundColor = .systemGray6
         
         return view
     }()
@@ -138,7 +138,7 @@ final class DetailViewController: UIViewController {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderColor = UIColor.systemGray2.cgColor
+        view.layer.borderColor = UIColor.systemGray4.cgColor
         view.layer.borderWidth = 0.5
         
         return view

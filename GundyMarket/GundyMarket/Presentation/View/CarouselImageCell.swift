@@ -46,7 +46,7 @@ final class CarouselImageCell: UICollectionViewCell {
     // MARK: - Private 
     
     private func configureHierarchy() {
-        contentView.backgroundColor = .systemGray4
+        contentView.backgroundColor = .systemGray6
         contentView.addSubview(imageView)
     }
     

@@ -44,7 +44,7 @@ final class TitleTextBlock: UIView {
         let view = UIView()
         
         view.layer.cornerRadius = 5
-        view.layer.borderColor = UIColor.systemGray2.cgColor
+        view.layer.borderColor = UIColor.systemGray4.cgColor
         view.layer.borderWidth = 0.5
         
         return view
@@ -185,7 +185,7 @@ final class TitleTextBlock: UIView {
             cautionLabel.isHidden = false
         } else {
             outlineView.layer.borderWidth = 0.5
-            outlineView.layer.borderColor = UIColor.systemGray2.cgColor
+            outlineView.layer.borderColor = UIColor.systemGray4.cgColor
             outlineView.backgroundColor = nil
             textView.backgroundColor = nil
             cautionLabel.isHidden = true
@@ -204,7 +204,7 @@ extension TitleTextBlock: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        outlineView.layer.borderColor = UIColor.systemGray2.cgColor
+        outlineView.layer.borderColor = UIColor.systemGray4.cgColor
     }
     
     func textViewDidChange(_ textView: UITextView) {

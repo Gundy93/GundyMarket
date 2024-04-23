@@ -91,7 +91,7 @@ final class ImagePickerCell: UICollectionViewCell {
         ])
         
         contentView.layer.cornerRadius = 8
-        contentView.layer.borderColor = UIColor.systemGray2.cgColor
+        contentView.layer.borderColor = UIColor.systemGray4.cgColor
         contentView.layer.borderWidth = 0.5
     }
 }
