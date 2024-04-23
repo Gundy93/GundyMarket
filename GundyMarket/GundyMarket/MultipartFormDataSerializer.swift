@@ -34,14 +34,16 @@ struct MultipartFormDataSerializer: NetworkSerializable {
             )
         }
         
-        if let images = parameters["images"] as? Data {
-            body = append(
-                images,
-                to: body,
-                name: "images",
-                fileName: "image.jpeg",
-                contentType: "image/jpeg"
-            )
+        if let images = parameters["images"] as? [Data] {
+            images.forEach {
+                body = append(
+                    $0,
+                    to: body,
+                    name: "images",
+                    fileName: "image.jpeg",
+                    contentType: "image/jpeg"
+                )
+            }
         }
         
         body.append(dataFrom(string: "--" + boundary + "--"))

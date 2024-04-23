@@ -138,13 +138,7 @@ final class GundyMarketViewModel {
         let builder = ProductAddBuilder(
             boundary: "----boundary",
             product: productData,
-            images: images.reduce(Data()) {
-                var data = $0
-                
-                data.append($1)
-                
-                return data
-            }
+            images: images
         )
         
         let result = await networkManager.request(builder)
@@ -158,8 +152,8 @@ final class GundyMarketViewModel {
     }
     
     func deleteProduct() async throws {
-        let uri = try await searchDeleteURI()
-        let builder = ProductDeleteBuilder(uri: uri)
+        let uri = try await searchDeleteURI().dropFirst()
+        let builder = ProductDeleteBuilder(uri: String(uri))
         let result = await networkManager.request(builder)
         
         switch result {

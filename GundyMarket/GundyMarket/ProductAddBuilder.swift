@@ -35,7 +35,7 @@ struct ProductAddBuilder: NetworkBuilderProtocol {
     init(
         boundary: String,
         product: Data,
-        images: Data
+        images: [Data]
     ) {
         self.boundary = boundary
         parameters = [

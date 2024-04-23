@@ -66,6 +66,7 @@
 		BFEE9B792BD67DA800984283 /* SecretNetwrokSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B782BD67DA800984283 /* SecretNetwrokSerializer.swift */; };
 		BFEE9B7B2BD67EA900984283 /* SerializerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B7A2BD67EA900984283 /* SerializerError.swift */; };
 		BFEE9B7D2BD6822C00984283 /* ProductDeleteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B7C2BD6822C00984283 /* ProductDeleteBuilder.swift */; };
+		BFEE9B7F2BD735B300984283 /* StringNetworkDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9B7E2BD735B300984283 /* StringNetworkDeserializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		BFEE9B782BD67DA800984283 /* SecretNetwrokSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretNetwrokSerializer.swift; sourceTree = "<group>"; };
 		BFEE9B7A2BD67EA900984283 /* SerializerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializerError.swift; sourceTree = "<group>"; };
 		BFEE9B7C2BD6822C00984283 /* ProductDeleteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDeleteBuilder.swift; sourceTree = "<group>"; };
+		BFEE9B7E2BD735B300984283 /* StringNetworkDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkDeserializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				BF2180622B9732DC00005292 /* NetworkError.swift */,
 				BF2180632B9732DC00005292 /* NetworkSession.swift */,
 				BF2180642B9732DC00005292 /* JSONNetworkDeserializer.swift */,
+				BFEE9B7E2BD735B300984283 /* StringNetworkDeserializer.swift */,
 				BF217FDF2B924E3500005292 /* Interface */,
 			);
 			name = Network;
@@ -561,6 +564,7 @@
 				BF2180682B9732DC00005292 /* JSONNetworkDeserializer.swift in Sources */,
 				BFBE06102BA074EE0034F32F /* GundyMarketViewModel.swift in Sources */,
 				BF21806F2B97330200005292 /* NetworkSessionProtocol.swift in Sources */,
+				BFEE9B7F2BD735B300984283 /* StringNetworkDeserializer.swift in Sources */,
 				BFBE061E2BA319780034F32F /* CacheProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

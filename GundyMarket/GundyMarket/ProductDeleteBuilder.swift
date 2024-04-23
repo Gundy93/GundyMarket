@@ -14,6 +14,7 @@ struct ProductDeleteBuilder: NetworkBuilderProtocol {
     
     var baseURL: String { "http://openmarket.yagom-academy.kr" }
     var path: String
+    var headers: [String : String] { ["identifier" : Bundle.main.object(forInfoDictionaryKey: "VendorIdentifier") as! String] }
     var httpMethod: String { "DELETE" }
     var deserializer: NetworkDeserializable = JSONNetworkDeserializer(decoder: .init())
     

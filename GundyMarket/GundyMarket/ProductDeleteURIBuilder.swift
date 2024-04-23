@@ -13,17 +13,17 @@ struct ProductDeleteURIBuilder: NetworkBuilderProtocol {
     // MARK: - Public property
     
     var baseURL: String { "http://openmarket.yagom-academy.kr" }
-    var path: String { "api/products\(id)" }
+    var path: String { "api/products/\(id)/archived" }
     var headers: [String : String] {
         [
             "identifier" : Bundle.main.object(forInfoDictionaryKey: "VendorIdentifier") as! String,
             "Content-Type" : "application/json"
         ]
     }
-    var parameters: [String : Any] { ["secret" : Bundle.main.object(forInfoDictionaryKey: "UserPassword") as! String] }
+    var parameters: [String : Any] { ["secret" : Secret(password: Bundle.main.object(forInfoDictionaryKey: "UserPassword") as! String)] }
     var httpMethod: String { "POST" }
     var serializer: NetworkSerializable? = SecretNetwrokSerializer(encoder: .init())
-    var deserializer: NetworkDeserializable = JSONNetworkDeserializer(decoder: .init())
+    var deserializer: NetworkDeserializable = StringNetworkDeserializer()
     
     
     // MARK: - Private property
