@@ -29,7 +29,11 @@
 
 ![MVVM](https://github.com/Gundy93/GundyMarket/assets/106914201/0875ec71-4084-4f9b-bcdb-f355e0728ba4)
 
-Cocoa MVC보다 테스터블한 코드를 만들고자 했기 때문에 뷰와 로직을 완전히 분리시킬 수 있는 MVVM을 선택하였습니다. 이 프로젝트에서 ViewController는 뷰로 간주합니다.
+Cocoa MVC 대신 MVVM을 선택한 데에는 두 가지 이유가 있습니다.
+
+첫 번째 이유는 뷰가 필요로 하는 값을 정제하는 로직을 담당할 역할군이 필요하다고 생각했습니다. 값을 정제한다면 Cocoa MVC의 Model이 그 일을 해줄 수 있을 것 같지만, 해당 역할은 뷰와 결합도가 높아질 수밖에 없기 때문에 Model이 수행하기에 적절하지 않다고 생각했습니다. 또한 ViewController가 값의 정제까지 수행한다면 흔히들 말하는 Massive ViewController가 될 우려가 있다고 생각합니다. 그래서 Model도 ViewController도 아니지만 View와 결합도가 비교적 높더라도 이해할 수 있는 ViewModel에게 그 역할을 부여하였습니다. 이 프로젝트에서 ViewController는 뷰로 간주합니다.
+
+두 번째 이유로는 데이터 바인딩의 방법은 저마다 다르지만 현재 현업에서 가장 많이 사용되고 있는 MVVM 아키텍처를 익숙하게 활용할 수 있어야 한다고 생각했기 때문에 결과적으로 이번 프로젝트의 아키텍처로 MVVM을 선택하였습니다.
 
 ### Clean Architecture
 
@@ -56,7 +60,7 @@ Cocoa MVC보다 테스터블한 코드를 만들고자 했기 때문에 뷰와 �
 
 ### Unit Test
 
-POP, 그리고 MVVM에서 얻을 수 있는 장점으로는 역시 testability를 꼽고 싶습니다. 이번 프로젝트의 아키텍처 선정 사유중 가장 중요한 부분이 테스터블함이기 때문입니다. 테스트는 실제로 인터넷 연결이 되지 않은 상황에서도 가능해야 하므로 네트워크에 대해서는 테스트 더블을 활용하였습니다.
+네트워크, 캐시 등 이 앱에서만 사용가능한 Feature가 아닌 Core에 가까운 타입들에 대해서 일반적인 기능에 대한 테스트를 진행했습니다. 테스트는 실제로 인터넷 연결이 되지 않은 상황에서도 가능해야 하므로 네트워크에 대해서는 테스트 더블을 활용하였습니다.
 
 [⬆️ 목차로 돌아가기](#-목차)
 
@@ -66,31 +70,31 @@ POP, 그리고 MVVM에서 얻을 수 있는 장점으로는 역시 testability�
 
 |이미지 캐싱|리프레쉬|무한 스크롤|
 |:-:|:-:|:-:|
-|![02_이미지캐싱](https://github.com/Gundy93/GundyMarket/assets/106914201/3e656015-bbbd-47a1-b7fc-0a261f4e7834)|![04_리프레쉬](https://github.com/Gundy93/GundyMarket/assets/106914201/296e9647-10db-4707-897b-0c8500fc6592)|![03_무한스크롤](https://github.com/Gundy93/GundyMarket/assets/106914201/58e715ce-49cb-4ca4-9420-d5ec255dd492)|
+|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/3e656015-bbbd-47a1-b7fc-0a261f4e7834" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/296e9647-10db-4707-897b-0c8500fc6592" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/58e715ce-49cb-4ca4-9420-d5ec255dd492" width="300" />|
 
 |상세화면 네비게이션 전환|캐러셀 이미지|자신의 게시글 삭제 기능|
 |:-:|:-:|:-:|
-|![05_화면전환](https://github.com/Gundy93/GundyMarket/assets/106914201/4750d995-2030-49dc-921f-fd95a32d1e6e)|![06_캐러샐](https://github.com/Gundy93/GundyMarket/assets/106914201/ff3c174e-7348-42e5-b29d-b7cf46498b1f)|![09_삭제](https://github.com/Gundy93/GundyMarket/assets/106914201/d2ba2914-1458-4e09-899c-2d46139b1c06)|
+|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/4750d995-2030-49dc-921f-fd95a32d1e6e" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/ff3c174e-7348-42e5-b29d-b7cf46498b1f" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/d2ba2914-1458-4e09-899c-2d46139b1c06" width="300" />|
 
 |글쓰기 모달 전환|PHPicker|이미지 수량 제한|
 |:-:|:-:|:-:|
-|![10_모달](https://github.com/Gundy93/GundyMarket/assets/106914201/42f27bc5-723c-4a4d-b47a-0681deaf45cf)|![11_PHPicker](https://github.com/Gundy93/GundyMarket/assets/106914201/a35a505a-12b8-4973-af8c-4ae91ec0a858)|![12_이미지 제한](https://github.com/Gundy93/GundyMarket/assets/106914201/b3d1aaf9-8afb-4ec6-be1a-57654809f315)|
+|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/42f27bc5-723c-4a4d-b47a-0681deaf45cf" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/a35a505a-12b8-4973-af8c-4ae91ec0a858" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/b3d1aaf9-8afb-4ec6-be1a-57654809f315" width="300" />|
 
 |이미지 선택 해제|상품 등록시 필수사항 안내|상품 등록|
 |:-:|:-:|:-:|
-|![13_이미지 선택 해제](https://github.com/Gundy93/GundyMarket/assets/106914201/99396bd3-7df9-4010-ad50-251990948154)|![14_안내문구](https://github.com/Gundy93/GundyMarket/assets/106914201/b391126f-5e0b-4e70-a596-b27c89d6b9eb)|![15_상품 등록](https://github.com/Gundy93/GundyMarket/assets/106914201/4f1a33a3-37ad-4b66-b627-4550ba120bfd)|
+|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/99396bd3-7df9-4010-ad50-251990948154" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/b391126f-5e0b-4e70-a596-b27c89d6b9eb" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/4f1a33a3-37ad-4b66-b627-4550ba120bfd" width="300" />|
 
 ### UI 관련
 
 |글쓰기 버튼 클릭시 색상 변환|스티키 헤더 이미지|스크롤에 따른 네비게이션바|
 |:-:|:-:|:-:|
-|![01_글쓰기버튼](https://github.com/Gundy93/GundyMarket/assets/106914201/22536422-7093-4202-ab5e-4cb0fa2c6f0e)|![07_스티키 헤더](https://github.com/Gundy93/GundyMarket/assets/106914201/a9f2e8f0-2356-48ff-9c86-f278477195ae)|![08_네비게이션바](https://github.com/Gundy93/GundyMarket/assets/106914201/ad08fbbd-2c9a-481e-a56e-91f62f7292f7)|
+|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/22536422-7093-4202-ab5e-4cb0fa2c6f0e" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/a9f2e8f0-2356-48ff-9c86-f278477195ae" width="300" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/ad08fbbd-2c9a-481e-a56e-91f62f7292f7" width="300" />|
 
 [⬆️ 목차로 돌아가기](#-목차)
 
 ## 🧨 트러블 슈팅
 
-### DecodingError.typeMismatch
+### 0. DecodingError.typeMismatch
 
 네트워크 레이어 설계를 마친 김에 상품 목록을 받아오는 작업을 수행했습니다. 예상과는 다르게 다음과 같은 에러가 반환되었습니다.
 
@@ -114,7 +118,7 @@ LLDB를 통해 정확한 에러를 확인할 수 있었습니다.
 
 이로 인해 단순히 JSON 데이터를 디코딩하기 위한 객체도 테스트를 진행하는 것이 옳다고 생각하게 돼, 바로 테스트를 작성하게 되었습니다.
 
-### Date 관련 테스트 실패
+### 1. Date 관련 테스트 실패
 
 날짜를 표현하는 `String` 값과 `Date`를 비교하여 `TimeInterval`을 반환하는 메서드를 테스트하였습니다. 2001년 1월 1일을 의미하는 `ReferenceDate`를 기준으로 하여 `"2001-01-02T00:00:00"`를 비교하면 딱 하루 차이가 나기 때문에 하루를 초단위로 환산한 `86400.0`이 반환될 것이라 예상했습니다.
 
@@ -138,7 +142,7 @@ formatter.timeZone = TimeZone(abbreviation: "UTC")
 
 `DateFormatter` 인스턴스를 설정할 때 `timeZone` 프로퍼티도 같이 설정하여 문제를 해결하였습니다.
 
-### 셀의 높이가 44로 고정되는 현상
+### 2. 셀의 높이가 44로 고정되는 현상
 
 리스트 형태의 레이아웃을 사용하고, 셀간의 `separator`의 크기를 조절하기 위해 `UICollectionViewListCell`을 상속하는 커스텀 셀을 구현했습니다. 이 셀에서 이미지가 포함된 스택뷰의 `topAnchor`와 `bottomAnchor`를 `contentView`에 대해 오토레이아웃 제약 조건을 설정하고, 이미지의 높이와 너비를 120으로 설정하였습니다. 그런데 다음과 같은 오토레이아웃 제약 조건 에러가 발생했습니다.
 
@@ -195,7 +199,7 @@ ratioConstraint.isActive = true
 
 이 방법을 선택한 이유는 리스트를 구성하는 데 있어서 `UICollectionViewCompositionalLayout.list`를 사용하는 편이 훨씬 코드가 간단 명료하다. 즉, 해당 기능을 아는 사람이 본다면 바로 이해할 수 있을 정도로 가독성이 좋아진다는 것입니다. 또한 유지보수 측면에 있어서도 휴먼 에러가 발생할 여지가 더 적은 리스트 레이아웃을 사용하는 것이 좋다고 생각했습니다.
 
-### 정확한 시각을 기록하지 않는 서버
+### 3. 정확한 시각을 기록하지 않는 서버
 
 ![image](https://github.com/Gundy93/GundyMarket/assets/106914201/bdebc54e-1717-4b9c-84a1-1c845fad8d46)
 
@@ -247,7 +251,7 @@ func string() -> String {
 
 ## 💭 이유 있는 코드
 
-### 비슷한 JSON 데이터에 대응하는 DTO
+### 0. 비슷한 JSON 데이터에 대응하는 DTO
 
 |상품 리스트 조회 Response|상품 상세 조회 Response|
 |:--:|:--:
@@ -279,7 +283,7 @@ struct ProductDTO: Decodable {
 }
 ```
 
-### NetworkManager
+### 1. NetworkManager
 
 매니저라는 이름에 걸맞도록 범용적인 네트워크 작업을 수행할 수 있도록 네트워크 레이어를 설계했습니다. 또한 특정 타입에 의존하지 않도록 프로토콜을 통해 추상화하여 DIP를 준수할 수 있도록 하였습니다.
 
@@ -329,5 +333,77 @@ protocol NetworkBuilderProtocol {
 `NetworkBuilderProtocol`가 `httpMethod`를 프로퍼티로 갖도록 하여 `NetworkManager`의 `request` 메서드 하나로 `GET`, `POST`, `PATCH`, `DELETE` 등 다양한 HTTPMethod를 처리할 수 있도록 하였습니다.
 
 또한 `NetworkSessionProtocol`의 경우는 프로토콜로 추상화되었기 때문에 인터넷 연결이 되지 않은 상황에서도 테스트할 수 있는 Test Double을 목표로 하였습니다. 단순히 매개변수를 채우기 위한 `MockNetworkBuilder`와 지정된 값을 반환하는 `StubNetworkSession`을 만들어 테스트를 진행하였습니다.
+
+### 2. ImageDataCacheManager
+
+`NetworkManager`와 마찬가지로 특정 타입에 의존하지 않도록 `CacheStorageProtocol`과 `CacheProtocol` 등 프로토콜을 통해 추상화하여 DIP를 준수할 수 있도록 하였습니다.
+
+캐시는 디스크와 메모리로 구분됩니다. 또한 두 캐시 모두에 원하는 키에 대한 값이 없을 경우 `ImageDataCacheManager`가 직접 네트워킹을 해서 이미지를 가져올 수 있도록 하였습니다.
+
+```swift
+final class ImageDataCacheManager {
+    private let memoryCache: CacheProtocol?
+    private let diskCache: CacheProtocol?
+    private let session: NetworkSessionProtocol
+
+    init(
+        memoryCache: CacheProtocol? = nil,
+        diskCache: CacheProtocol? = nil,
+        session: NetworkSessionProtocol
+    ) {
+        self.memoryCache = memoryCache
+        self.diskCache = diskCache
+        self.session = session
+    }
+
+    func get(for key: String) async -> Data? {
+        if let memoryCache,
+           let data = memoryCache.get(for: key) {
+            return data
+        } else if let diskCache,
+                  let data = diskCache.get(for: key) {
+            memoryCache?.store(data, for: key)
+            
+            return data
+        }
+        
+        guard let url = URL(string: key) else { return nil }
+        
+        switch await session.dataTask(with: URLRequest(url: url)) {
+        case .success(let data):
+            memoryCache?.store(data, for: key)
+            diskCache?.store(data, for: key)
+            
+            return data
+        ...
+        }
+    }
+}
+
+protocol CacheProtocol {
+    func get(for key: String) -> Data?
+    func store(_ value: Data, for key: String)
+}
+
+protocol CacheStorageProtocol {
+    func load(for key: String) -> Data?
+    func save(_ data: Data, for key: String)
+}
+```
+
+이번 프로젝트에서는 디스크 캐시가 필요하다고 생각하지 않았습니다. 디스크 캐시를 사용하는 것은 앱의 용량을 늘리고, 캐시 정책에 따라 자원을 보다 많이 사용하는 일입니다. 메모리 캐시만으로도 충분하다고 생각해 `diskCache`에는 `nil`을 전달하여 초기화해 사용했습니다.
+
+```swift
+let imageCacheManager = ImageDataCacheManager(
+    memoryCache: Cache(
+	storage: NSCacheStorage(
+	    nsCache: .init()
+	)
+    ),
+    session: NetworkSession(
+	session: .shared
+    )
+)
+```
 
 [⬆️ 목차로 돌아가기](#-목차)
