@@ -409,4 +409,90 @@ let imageCacheManager = ImageDataCacheManager(
 )
 ```
 
+### 3. NavigationBar
+
+실질적으로 네비게이션 기능은 필요하지 않지만 뷰에 네비게이션 바가 필요한 상황이 있습니다. 모달로 띄워지는 화면 중에 그런 경우들이 있었는데, 이번 프로젝트에서는 판매 상품 생성 화면이 그러합니다.
+
+<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/eafd2718-73ab-4d88-b560-0c1690e6c315" width="300" />
+
+이전까지는 네비게이션 컨트롤러의 루트뷰컨트롤러로 넣어서 프레젠트 해왔습니다.
+
+```swift
+let viewController = ProductAddViewController(viewModel: viewModel)
+let navigationController = UINavigationController(rootViewController: viewController)
+
+navigationController.modalPresentationStyle = .fullScreen
+present(
+    navigationController,
+    animated: true
+)
+```
+
+하지만 그 방식은 실질적으로 필요하지 않은 네비게이션 컨트롤러의 인스턴스까지 초기화하기 때문에 적절하지 않다는 생각을 해왔습니다.
+
+```swift
+final class ProductAddViewController: UIViewController {
+    private let navigationBar = UINavigationBar()
+    ...
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureHierarchy()
+        configureNavigationBar()
+        ...
+    }
+
+    private func configureHierarchy() {
+        view.addSubview(navigationBar)
+	...
+    }
+
+    private func configureNavigationBar() {
+        guard let scene = UIApplication.shared.connectedScenes.first,
+              let delegate = scene.delegate as? SceneDelegate,
+              let topInset = delegate.window?.safeAreaInsets.top else { return }
+        
+        let navigationTitle = "내 물건 팔기"
+        let navigationItem = UINavigationItem(title: navigationTitle)
+        
+        navigationBar.frame = .init(
+            x: 0,
+            y: topInset,
+            width: view.frame.width,
+            height: 44
+        )
+        navigationBar.isTranslucent = false
+        navigationBar.items = [navigationItem]
+        navigationBar.titleTextAttributes = [
+            .font : UIFont.systemFont(
+                ofSize: 17,
+                weight: .semibold
+            )
+        ]
+        navigationItem.leftBarButtonItem = .init(
+            image: UIImage(systemName: "xmark"),
+            style: .plain,
+            target: self,
+            action: #selector(dismissViewController)
+        )
+        navigationItem.leftBarButtonItem?.tintColor = .label
+    }
+
+    ...
+}
+```
+
+`ProductAddViewController`의 프로퍼티로 `navigationBar`를 따로 만들고, 서브뷰로 추가한 뒤 `UIApplication.shared`를 통해 적절한 `safeAreaInsets`을 설정할 수 있었습니다. 이를 통해 최종적으로 `UINavigationController`를 초기화하지 않고 적절히 모달로 띄울 수 있었습니다.
+
+```swift
+let viewController = ProductAddViewController(viewModel: viewModel)
+
+viewController.modalPresentationStyle = .fullScreen
+present(
+    viewController,
+    animated: true
+)
+```
+
 [⬆️ 목차로 돌아가기](#-목차)
