@@ -1,3 +1,6 @@
+|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/0d937e2f-c7ad-4390-b756-a3be7cea3858" width="225" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/91cf3a73-e68a-49b5-8a8d-e55181defe17" width="225" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/fbc51393-96f3-4052-8b8b-0f19ce31d5a1" width="225" />|<img src="https://github.com/Gundy93/GundyMarket/assets/106914201/d25de8fb-1696-411f-8696-ca7ae7933ff1" width="225" />|
+|:-:|:-:|:-:|:-:|
+
 실제 서버와 REST API 통신을 하는 물건 거래 앱으로, [iOS 오픈마켓](https://github.com/Gundy93/ios-open-market)의 리팩토링 프로젝트입니다.
 
 ## 📚 목차
